@@ -1,0 +1,144 @@
+======================================================================
+DAFTAR RUTE HALAMAN & RANCANGAN REST API ENDPOINTS - DENTALLINK
+======================================================================
+
+Dokumen ini menjelaskan struktur navigasi halaman front-end serta rancangan REST API endpoints yang disimulasikan atau direncanakan untuk aplikasi DentalLink.
+
+----------------------------------------------------------------------
+1. RUTE HALAMAN FRONTEND (DEPLOYED PAGES)
+----------------------------------------------------------------------
+Berikut adalah rute halaman langsung yang dapat diakses di production deployment:
+Link Utama: https://hci-lec-dental-link.vercel.app/
+
+PORTAL UMUM & AUTENTIKASI:
+* index.html (https://hci-lec-dental-link.vercel.app/index.html)
+  Deskripsi: Halaman Landing utama DentalLink. Menampilkan info layanan, testimoni, FAQ, dan tautan masuk/daftar.
+
+* login.html (https://hci-lec-dental-link.vercel.app/login.html)
+  Deskripsi: Halaman masuk akun untuk Pasien dan Dokter (menggunakan sistem tab filter). Memverifikasi kredensial dari localStorage (dentalLinkUsers).
+
+* register.html (https://hci-lec-dental-link.vercel.app/register.html)
+  Deskripsi: Halaman pendaftaran akun baru. Meminta informasi khusus dokter (seperti nama klinik dan lokasi) jika mendaftar sebagai peran Dokter.
+
+PORTAL PASIEN (PATIENT PORTAL):
+* dashboard.html (https://hci-lec-dental-link.vercel.app/dashboard.html)
+  Deskripsi: Halaman utama pasien setelah login. Menampilkan daftar klinik gigi terdekat, rating, jarak, rincian biaya layanan gigi, opsi membuat janji temu, dan widget chat singkat dengan klinik.
+
+* schedule.html (https://hci-lec-dental-link.vercel.app/schedule.html)
+  Deskripsi: Daftar janji temu pasien (yang akan datang maupun yang sudah selesai) serta opsi untuk melakukan reschedule atau konfirmasi kehadiran.
+
+* odontogram.html (https://hci-lec-dental-link.vercel.app/odontogram.html)
+  Deskripsi: Halaman visualisasi kondisi gigi (odontogram) milik pasien untuk melihat catatan perawatan per gigi.
+
+PORTAL DOKTER (DOCTOR PORTAL):
+* dashboard2.html (https://hci-lec-dental-link.vercel.app/dashboard2.html)
+  Deskripsi: Halaman utama dokter. Berisi rangkuman statistik harian (jumlah pasien, konsultasi baru, resep) dan kalender jadwal harian pasien.
+
+* schedule2.html (https://hci-lec-dental-link.vercel.app/schedule2.html)
+  Deskripsi: Kalender kerja bulanan penuh bagi dokter untuk memantau beban jadwal janji temu harian secara detail.
+
+* patients2.html (https://hci-lec-dental-link.vercel.app/patients2.html)
+  Deskripsi: Manajemen data pasien. Dokter dapat mencari pasien, melihat riwayat perawatan, dan menambah rekam medis pasien.
+
+* odontogram2.html (https://hci-lec-dental-link.vercel.app/odontogram2.html)
+  Deskripsi: Alat interaktif bagi dokter untuk mengedit kondisi odontogram gigi pasien dan mencatat tindakan medis per gigi secara visual.
+
+* prescriptions.html (https://hci-lec-dental-link.vercel.app/prescriptions.html)
+  Deskripsi: Fitur pembuatan dan pengelolaan resep obat untuk pasien, lengkap dengan nama obat, dosis, frekuensi, dan status pengambilan.
+
+* chat2.html (https://hci-lec-dental-link.vercel.app/chat2.html)
+  Deskripsi: Pusat komunikasi chat interaktif dokter dengan berbagai pasien.
+
+
+----------------------------------------------------------------------
+2. RANCANGAN REST API ENDPOINTS (BACKEND API)
+----------------------------------------------------------------------
+Rancangan endpoint RESTful API jika aplikasi dihubungkan ke server backend (seperti Node.js/Express, Python/FastAPI, atau Laravel):
+
+A. AUTENTIKASI (AUTHENTICATION)
+* POST /api/auth/register
+  Deskripsi: Mendaftarkan akun pasien atau dokter baru.
+  Request Body: { name, email, password, role, clinic*, location* }
+  Response: 201 Created / Token JWT
+
+* POST /api/auth/login
+  Deskripsi: Autentikasi pengguna dan mengembalikan token akses.
+  Request Body: { email, password, role }
+  Response: 200 OK + Token + Info User
+
+* GET /api/auth/me
+  Deskripsi: Mengambil data sesi profil pengguna yang sedang login.
+  Header: Authorization Bearer
+  Response: 200 OK (User Detail)
+
+B. MANAJEMEN KLINIK (CLINICS)
+* GET /api/clinics
+  Deskripsi: Mengambil daftar klinik terdekat, rating, dan lokasinya.
+  Query Params: lat, lng, search
+  Response: 200 OK (Array of Clinics)
+
+* GET /api/clinics/:id
+  Deskripsi: Mengambil info detail klinik tertentu termasuk daftar tarif layanannya.
+  URL Params: id
+  Response: 200 OK (Clinic Detail + Services)
+
+C. JANJI TEMU (APPOINTMENTS & SCHEDULES)
+* GET /api/appointments
+  Deskripsi: Mengambil daftar janji temu (berdasarkan filter role login).
+  Query Params: status, date
+  Response: 200 OK (Array of Appointments)
+
+* POST /api/appointments
+  Deskripsi: Membuat janji temu baru (oleh Pasien).
+  Request Body: { clinicId, date, time, type }
+  Response: 201 Created
+
+* PUT /api/appointments/:id
+  Deskripsi: Mengubah status janji temu (Reschedule / Konfirmasi Hadir / Selesai).
+  URL Params: id
+  Request Body: { date, time, status }
+  Response: 200 OK
+
+D. REKAM MEDIS & ODONTOGRAM (PATIENTS & ODONTOGRAMS)
+* GET /api/patients
+  Deskripsi: Mengambil daftar pasien yang terdaftar di bawah klinik dokter.
+  Query Params: search
+  Response: 200 OK (Array of Patients)
+
+* GET /api/patients/:id/odontogram
+  Deskripsi: Mengambil data kondisi gigi pasien (32 gigi) beserta riwayat tindakannya.
+  URL Params: id
+  Response: 200 OK (Odontogram Data)
+
+* PUT /api/patients/:id/odontogram
+  Deskripsi: Memperbarui kondisi atau catatan tindakan pada gigi tertentu (oleh Dokter).
+  URL Params: id
+  Request Body: { toothNumber, condition, notes }
+  Response: 200 OK
+
+E. RESEP OBAT (PRESCRIPTIONS)
+* GET /api/prescriptions
+  Deskripsi: Mengambil riwayat resep obat pasien.
+  Query Params: patientId
+  Response: 200 OK (Array of Prescriptions)
+
+* POST /api/prescriptions
+  Deskripsi: Membuat/mengirimkan resep obat baru ke pasien (oleh Dokter).
+  Request Body: { patientId, medicines: [{ name, dose, freq }] }
+  Response: 201 Created
+
+F. LAYANAN OBROLAN (CHAT MESSAGING)
+* GET /api/chat/rooms
+  Deskripsi: Mendapatkan daftar ruangan chat aktif bagi user.
+  Response: 200 OK (Array of Rooms)
+
+* GET /api/chat/rooms/:roomId/messages
+  Deskripsi: Mengambil riwayat pesan di dalam suatu ruangan chat.
+  URL Params: roomId
+  Response: 200 OK (Array of Messages)
+
+* POST /api/chat/send
+  Deskripsi: Mengirimkan pesan baru ke klinik/pasien.
+  Request Body: { roomId, receiverId, message }
+  Response: 201 Created
+======================================================================

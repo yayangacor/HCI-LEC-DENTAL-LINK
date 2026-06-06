@@ -1,5 +1,35 @@
 // Ganti bagian <script> di dalam login.html dengan kode ini:
 
+// Seeding akun demo jika belum ada di localStorage
+(function seedDemoAccounts() {
+    const demoUsers = [
+        {
+            id: "demo-pasien-id",
+            role: "pasien",
+            name: "Sarah Connor",
+            email: "pasien@demo.com",
+            password: "password123"
+        },
+        {
+            id: "demo-dokter-id",
+            role: "dokter",
+            name: "Dr. Smith",
+            email: "dokter@demo.com",
+            password: "password123",
+            clinic: "Dental Care Plus - Senopati",
+            location: "Jakarta Selatan"
+        }
+    ];
+
+    let users = JSON.parse(localStorage.getItem('dentalLinkUsers')) || [];
+    demoUsers.forEach(demoUser => {
+        if (!users.some(u => u.email === demoUser.email)) {
+            users.push(demoUser);
+        }
+    });
+    localStorage.setItem('dentalLinkUsers', JSON.stringify(users));
+})();
+
 let currentRole = 'pasien';
 
 function setRole(role) {
@@ -93,3 +123,18 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
         errorBox.style.display = 'block';
     }
 });
+
+function loginDemo(role) {
+    const email = role === 'pasien' ? 'pasien@demo.com' : 'dokter@demo.com';
+    const password = 'password123';
+
+    setRole(role);
+
+    document.getElementById('emailInput').value = email;
+    document.getElementById('passwordInput').value = password;
+
+    // Trigger form submit
+    setTimeout(() => {
+        document.getElementById('loginForm').dispatchEvent(new Event('submit'));
+    }, 100);
+}
