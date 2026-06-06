@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dental Link - Dashboard</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="dashboard2.css">
+</head>
+<body>
+
+<aside class="sidebar">
+<div class="sidebar-header">
+<div class="brand-logo">
+<i class="fa-solid fa-stethoscope"></i>
+</div>
+<h1 class="brand-title">Dental Link</h1>
+</div>
+
+<div class="sidebar-profile-container">
+<div class="sidebar-profile">
+<div class="profile-pic">
+<img src="https://api.dicebear.com/7.x/avataaars/svg?seed=DrSmith" alt="Dr Smith">
+</div>
+<div class="profile-details">
+<p class="profile-name">Dr. Smith</p>
+<p class="profile-role">Clinical Director</p>
+</div>
+</div>
+</div>
+
+<div class="sidebar-action">
+<button class="btn-new-appointment">
+<i class="fa-solid fa-plus"></i>
+<span>Janji Temu Baru</span>
+</button>
+</div>
+
+<nav class="sidebar-nav">
+<a href="dashboard2.html" class="nav-item active">
+<i class="fa-solid fa-chart-line nav-icon"></i>
+<span>Dashboard</span>
+</a>
+<a href="patients2.html" class="nav-item">
+<i class="fa-solid fa-users nav-icon"></i>
+<span>Pasien</span>
+</a>
+<a href="schedule2.html" class="nav-item">
+<i class="fa-solid fa-calendar-days nav-icon"></i>
+<span>Jadwal</span>
+</a>
+<a href="odontogram2.html" class="nav-item">
+<i class="fa-solid fa-tooth nav-icon"></i>
+<span>Odontogram</span>
+</a>
+<a href="chat2.html" class="nav-item nav-item-spaced">
+<div class="nav-item-left">
+<i class="fa-solid fa-comments nav-icon"></i>
+<span>Chat Pasien</span>
+</div>
+<span class="badge-red">2</span>
+</a>
+</nav>
+
+<div class="sidebar-footer">
+<button class="nav-item">
+<i class="fa-solid fa-gear nav-icon"></i>
+<span>Pengaturan</span>
+</button>
+<button class="nav-item">
+<i class="fa-solid fa-circle-question nav-icon"></i>
+<span>Bantuan</span>
+</button>
+</div>
+</aside>
+
+<div class="main-layout">
+<header class="topbar">
+<div class="search-wrapper">
+<i class="fa-solid fa-magnifying-glass search-icon"></i>
+<input type="text" class="search-input" placeholder="Cari pasien, rekam medis...">
+</div>
+<div class="topbar-actions">
+<button class="btn-notification">
+<i class="fa-solid fa-bell"></i>
+<span class="notification-indicator"></span>
+</button>
+<div class="user-avatar">DS</div>
+</div>
+</header>
+
+<main class="dashboard-main">
+<div class="page-header">
+<h2 class="page-title">Selamat pagi, Dr. Smith</h2>
+<p class="page-subtitle">Anda memiliki 8 janji temu yang dijadwalkan hari ini.</p>
+</div>
+
+<div class="dashboard-grid">
+<div class="card schedule-card">
+<div class="card-header">
+<h3 class="card-title">
+<i class="fa-solid fa-calendar icon-emerald"></i>
+Manajemen Jadwal
+</h3>
+<a href="schedule2.html" class="card-link">Lihat Kalender Lengkap</a>
+</div>
+
+<div class="schedule-table-header">
+<div>Waktu</div>
+<div>Kursi 1</div>
+<div>Kursi 2</div>
+<div>Higiene</div>
+</div>
+
+<div class="schedule-rows">
+<div class="schedule-row">
+<div class="schedule-time">09:00</div>
+<div class="schedule-slots">
+<div class="slot slot-rose">
+<p class="slot-title">Sarah Connor</p>
+<p class="slot-desc">Root Canal</p>
+</div>
+<div class="slot slot-emerald-dashed">
+<p class="slot-title">Slot Buka</p>
+<p class="slot-desc">Available</p>
+</div>
+<div class="slot slot-blue">
+<p class="slot-title">John Doe</p>
+<p class="slot-desc">Cleaning</p>
+</div>
+</div>
+</div>
+
+<div class="schedule-row">
+<div class="schedule-time">10:00</div>
+<div class="schedule-slots">
+<div class="slot slot-indigo">
+<p class="slot-title">Mike Ross</p>
+<p class="slot-desc">Checkup</p>
+</div>
+<div class="slot slot-rose">
+<p class="slot-title">Rachel Zane</p>
+<p class="slot-desc">Extraction</p>
+</div>
+<div class="slot slot-emerald-dashed">
+<p class="slot-title">Slot Buka</p>
+<p class="slot-desc">Available</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="card odontogram-card">
+<div class="odontogram-icon-wrapper">
+<i class="fa-solid fa-tooth"></i>
+</div>
+<h3 class="card-title-large">Odontogram Cepat</h3>
+<p class="card-subtitle">Akses bagan gigi digital untuk input pemeriksaan instan.</p>
+<div class="odontogram-preview">
+<div class="tooth-placeholder-group">
+<div class="tooth-placeholder"></div>
+<div class="tooth-placeholder"></div>
+<div class="tooth-placeholder"></div>
+<div class="tooth-placeholder"></div>
+</div>
+</div>
+<a href="odontogram2.html" class="btn-blue-full">
+Buka Bagan
+<i class="fa-solid fa-chevron-right btn-icon-right"></i>
+</a>
+</div>
+</div>
+
+<div class="card patients-card">
+<div class="card-header">
+<h3 class="card-title">
+<i class="fa-solid fa-users icon-emerald"></i>
+Daftar Pasien Aktif
+</h3>
+<div class="toggle-group">
+<button class="toggle-btn toggle-active">Hari Ini</button>
+<button class="toggle-btn toggle-inactive">Mendatang</button>
+</div>
+</div>
+
+<div class="table-responsive">
+<table class="patients-table">
+<thead>
+<tr>
+<th>Nama Pasien</th>
+<th>Waktu</th>
+<th>Prosedur</th>
+<th>Status</th>
+<th class="text-right">Aksi</th>
+</tr>
+</thead>
+<tbody id="active-patients-list">
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</div>
+
+<script src="dashboard2.js"></script>
+</body>
+</html>

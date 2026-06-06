@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dental Link - Chat Pasien</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="chat2.css">
+</head>
+<body>
+
+<aside class="sidebar">
+<div class="sidebar-brand">
+<div class="brand-icon">
+<i class="fa-solid fa-stethoscope"></i>
+</div>
+<h1 class="brand-title">Dental Link</h1>
+</div>
+
+<div class="sidebar-profile-wrapper">
+<div class="sidebar-profile">
+<div class="profile-avatar">
+<img src="https://api.dicebear.com/7.x/avataaars/svg?seed=DrSmith" alt="Dr. Smith">
+</div>
+<div class="profile-info">
+<p class="profile-name">Dr. Smith</p>
+<p class="profile-role">Clinical Director</p>
+</div>
+</div>
+</div>
+
+<div class="sidebar-action">
+<button class="btn-new-appointment">
+<i class="fa-solid fa-plus"></i>
+<span>Janji Temu Baru</span>
+</button>
+</div>
+
+<nav class="sidebar-nav">
+<a href="dashboard2.html" class="nav-item">
+<i class="fa-solid fa-chart-line nav-icon"></i>
+<span>Dashboard</span>
+</a>
+<a href="patients2.html" class="nav-item">
+<i class="fa-solid fa-users nav-icon"></i>
+<span>Pasien</span>
+</a>
+<a href="schedule2.html" class="nav-item">
+<i class="fa-solid fa-calendar-days nav-icon"></i>
+<span>Jadwal</span>
+</a>
+<a href="odontogram2.html" class="nav-item">
+<i class="fa-solid fa-tooth nav-icon"></i>
+<span>Odontogram</span>
+</a>
+<a href="chat2.html" class="nav-item active flex-between">
+<div class="nav-item-left">
+<i class="fa-solid fa-comments nav-icon"></i>
+<span>Chat Pasien</span>
+</div>
+<span class="badge-red">2</span>
+</a>
+</nav>
+
+<div class="sidebar-footer">
+<button class="nav-item">
+<i class="fa-solid fa-gear nav-icon"></i>
+<span>Pengaturan</span>
+</button>
+<button class="nav-item">
+<i class="fa-solid fa-circle-question nav-icon"></i>
+<span>Bantuan</span>
+</button>
+</div>
+</aside>
+
+<div class="main-wrapper">
+<header class="topbar">
+<div class="search-container">
+<i class="fa-solid fa-magnifying-glass search-icon"></i>
+<input type="text" class="search-input" placeholder="Cari chat pasien...">
+</div>
+<div class="topbar-actions">
+<button class="btn-icon">
+<i class="fa-solid fa-bell"></i>
+<span class="dot-red"></span>
+</button>
+<div class="avatar-sm">DS</div>
+</div>
+</header>
+
+<div class="chat-container">
+<div class="chat-card">
+<div class="contacts-panel">
+<div class="contacts-header">
+<div class="contacts-title-row">
+<h3 class="contacts-title">Pesan Pasien</h3>
+<button class="btn-edit-icon">
+<i class="fa-solid fa-pen-to-square"></i>
+</button>
+</div>
+<div class="search-container-small">
+<i class="fa-solid fa-magnifying-glass search-icon-small"></i>
+<input type="text" class="search-input-small" placeholder="Cari nama pasien...">
+</div>
+</div>
+
+<div class="contacts-list">
+<div class="contact-item active">
+<div class="contact-avatar-wrapper">
+<div class="avatar-md bg-emerald-light text-emerald-dark">SC</div>
+<div class="status-dot-online"></div>
+</div>
+<div class="contact-info">
+<div class="contact-name-row">
+<p class="contact-name">Sarah Connor</p>
+<p class="contact-time text-emerald">10:42 AM</p>
+</div>
+<div class="contact-preview-row">
+<p class="contact-preview">Dok, apakah saya boleh makan...</p>
+<span class="badge-red-small">2</span>
+</div>
+</div>
+</div>
+
+<div class="contact-item">
+<div class="avatar-md bg-blue-light text-blue-dark">JD</div>
+<div class="contact-info">
+<div class="contact-name-row">
+<p class="contact-name-normal">John Doe</p>
+<p class="contact-time-normal">Kemarin</p>
+</div>
+<p class="contact-preview">Terima kasih atas jadwal ulangnya.</p>
+</div>
+</div>
+
+<div class="contact-item">
+<div class="avatar-md bg-amber-light text-amber-dark">MR</div>
+<div class="contact-info">
+<div class="contact-name-row">
+<p class="contact-name-normal">Mike Ross</p>
+<p class="contact-time-normal">Selasa</p>
+</div>
+<div class="contact-preview-flex">
+<i class="fa-solid fa-check-double text-blue"></i>
+<span class="contact-preview">Baik, saya akan datang jam 10.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="chat-panel">
+<div class="chat-header">
+<div class="chat-user-info">
+<div class="avatar-sm bg-emerald-light text-emerald-dark">SC</div>
+<div>
+<h4 class="chat-user-name">Sarah Connor</h4>
+<p class="chat-user-id">Pasien Terdaftar • ID: PT-8472</p>
+</div>
+</div>
+<div class="chat-actions">
+<button class="btn-action-icon"><i class="fa-solid fa-phone"></i></button>
+<button class="btn-action-icon"><i class="fa-solid fa-video"></i></button>
+<div class="divider-vertical"></div>
+<button class="btn-action-icon text-gray"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+</div>
+</div>
+
+<div class="chat-messages">
+<div class="date-divider">
+<div class="date-line"></div>
+<span class="date-badge">Hari Ini</span>
+</div>
+
+<div class="message-row patient">
+<div class="avatar-xs bg-emerald-light text-emerald-dark">SC</div>
+<div class="message-content">
+<div class="bubble bubble-patient">
+Halo Dokter, saya Sarah yang kemarin menjalani operasi cabut gigi bungsu. Tadi pagi gusinya agak sedikit bengkak dan ngilu, apakah itu normal Dok?
+</div>
+<p class="message-time">10:40 AM</p>
+</div>
+</div>
+
+<div class="message-row doctor">
+<div class="avatar-xs bg-slate-200 text-gray-600">DS</div>
+<div class="message-content">
+<div class="bubble bubble-doctor">
+Halo Ibu Sarah. Ya, bengkak ringan dan rasa ngilu adalah respon inflamasi yang normal pasca ekstraksi pada 1-3 hari pertama.
+</div>
+<p class="message-time">
+10:45 AM
+<i class="fa-solid fa-check-double text-emerald-500"></i>
+</p>
+</div>
+</div>
+
+<div class="message-row patient">
+<div class="avatar-xs bg-emerald-light text-emerald-dark">SC</div>
+<div class="message-content">
+<div class="bubble bubble-patient">
+Baik Dok, apakah saya sudah boleh makan makanan hangat atau manis?
+</div>
+<p class="message-time text-emerald-bold">10:47 AM • Baru</p>
+</div>
+</div>
+</div>
+
+<div class="chat-input-panel">
+<div class="input-wrapper">
+<button class="btn-attachment"><i class="fa-solid fa-paperclip"></i></button>
+<textarea rows="1" placeholder="Ketik balasan medis Anda..." class="chat-textarea"></textarea>
+<button class="btn-send"><i class="fa-solid fa-paper-plane"></i></button>
+</div>
+<div class="input-footer">
+<div class="quick-replies">
+<button class="chip">Template Resep</button>
+<button class="chip">Saran Pasca-Op</button>
+</div>
+<p class="hint">Tekan <kbd>Enter</kbd> untuk kirim</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script src="chat2.js"></script>
+</body>
+</html>

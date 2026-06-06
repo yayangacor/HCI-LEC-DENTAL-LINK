@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental Link - Odontogram</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="odontogram2.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">
+                <i class="fa-solid fa-stethoscope"></i>
+            </div>
+            <h1 class="brand-title">Dental Link</h1>
+        </div>
+
+        <div class="profile-section">
+            <div class="profile-card">
+                <div class="profile-img">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=DrSmith" alt="Dr. Smith">
+                </div>
+                <div class="profile-info">
+                    <p class="profile-name">Dr. Smith</p>
+                    <p class="profile-role">Clinical Director</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-section">
+            <button class="btn-appointment">
+                <i class="fa-solid fa-plus"></i>
+                <span>Janji Temu Baru</span>
+            </button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard2.html" class="nav-item">
+                <i class="fa-solid fa-chart-line nav-icon"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="patients2.html" class="nav-item">
+                <i class="fa-solid fa-users nav-icon"></i>
+                <span>Pasien</span>
+            </a>
+            <a href="schedule2.html" class="nav-item">
+                <i class="fa-solid fa-calendar-days nav-icon"></i>
+                <span>Jadwal</span>
+            </a>
+            <a href="odontogram2.html" class="nav-item active">
+                <i class="fa-solid fa-tooth nav-icon"></i>
+                <span>Odontogram</span>
+            </a>
+            <a href="chat2.html" class="nav-item justify-between">
+                <div class="nav-left">
+                    <i class="fa-solid fa-comments nav-icon"></i>
+                    <span>Chat Pasien</span>
+                </div>
+                <span class="badge">2</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <button class="nav-item">
+                <i class="fa-solid fa-gear nav-icon"></i>
+                <span>Pengaturan</span>
+            </button>
+            <button class="nav-item">
+                <i class="fa-solid fa-circle-question nav-icon"></i>
+                <span>Bantuan</span>
+            </button>
+        </div>
+    </aside>
+
+    <div class="main-wrapper">
+
+        <header class="topbar">
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" placeholder="Cari data odontogram..." class="search-input">
+            </div>
+            
+            <div class="topbar-actions">
+                <button class="notification-btn">
+                    <i class="fa-solid fa-bell"></i>
+                    <span class="notification-dot"></span>
+                </button>
+                <div class="user-avatar">DS</div>
+            </div>
+        </header>
+
+        <main class="content">
+            <div class="page-header">
+                <div>
+                    <h2 class="page-title">Odontogram Digital</h2>
+                    <p class="page-subtitle">Bagan gigi interaktif untuk pasien Sarah Connor.</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn-outline">
+                        <i class="fa-solid fa-download"></i>
+                        Simpan Template
+                    </button>
+                    <button class="btn-primary">
+                        Finalisasi Rekam Medis
+                    </button>
+                </div>
+            </div>
+
+            <div class="odontogram-card">
+                <div class="odontogram-container">
+                    <div class="jaw" id="upper-jaw">
+                        <div class="jaw-line"></div>
+                    </div>
+                    <div class="jaw" id="lower-jaw">
+                        <div class="jaw-line"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-grid">
+                <div class="legend-card">
+                    <h4 class="legend-title">
+                        <div class="dot red-dot"></div>
+                        Keterangan Kondisi
+                    </h4>
+                    <div class="legend-items">
+                        <div class="legend-item">
+                            <div class="legend-box red-box"></div>
+                            Caries
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-box blue-box"></div>
+                            Filled
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-box gray-box"></div>
+                            Missing
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-box purple-box"></div>
+                            Bridge
+                        </div>
+                    </div>
+                </div>
+
+                <div class="notes-card">
+                    <div class="notes-content">
+                        <h4 class="notes-title" id="note-title">Catatan Detail</h4>
+                        <textarea id="tooth-note" rows="4" placeholder="Pilih gigi untuk mulai menulis catatan..." class="notes-textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="odontogram2.js"></script>
+</body>
+</html>
