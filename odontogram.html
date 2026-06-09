@@ -1,403 +1,307 @@
-```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Dental Link - Odontogram</title>
-
-<link rel="stylesheet" href="odontogram.css">
-
+<title>Dental Link - Rekam Medis Pasien</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="odontogram.css">
 </head>
-
 <body>
 
-<!-- SIDEBAR -->
-
 <aside class="sidebar">
-
-    <!-- LOGO -->
-
-    <div class="sidebar-logo">
-
-        <div class="logo-icon">
-            <i class="fa-solid fa-stethoscope"></i>
-        </div>
-
-        <h1>Dental Link</h1>
-
-    </div>
-
-    <!-- PROFILE -->
-
-    <div class="sidebar-profile">
-
-        <div class="profile-card">
-
-            <div class="profile-image">
-
-                <img
-                    src="https://api.dicebear.com/7.x/avataaars/svg?seed=SarahConnor&backgroundColor=b6e3f4"
-                    alt="Profile"
-                >
-
-            </div>
-
-            <div>
-
-                <p class="profile-name">
-                    Sarah Connor
-                </p>
-
-                <p class="profile-role">
-                    Pasien Premium
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- NAVIGATION -->
-
-    <nav class="sidebar-nav">
-
-        <a href="dashboard.html" class="nav-item">
-
-            <i class="fa-solid fa-chart-line"></i>
-
-            <span>Dashboard</span>
-
-        </a>
-
-        <a href="schedule.html" class="nav-item notification-item">
-
-            <i class="fa-solid fa-calendar-days"></i>
-
-            <span>Jadwal</span>
-
-            <span class="notification-badge">
-                1
-            </span>
-
-        </a>
-
-        <a href="prescriptions.html" class="nav-item">
-
-            <i class="fa-solid fa-prescription-bottle-medical"></i>
-
-            <span>Preskripsi</span>
-
-        </a>
-
-        <a href="odontogram.html" class="nav-item active">
-
-            <i class="fa-solid fa-tooth"></i>
-
-            <span>Odontogram</span>
-
-        </a>
-
-    </nav>
-
-    <!-- BOTTOM MENU -->
-
-    <div class="sidebar-bottom">
-
-        <button class="nav-item">
-
-            <i class="fa-solid fa-gear"></i>
-
-            <span>Pengaturan</span>
-
-        </button>
-
-        <button class="nav-item">
-
-            <i class="fa-solid fa-circle-question"></i>
-
-            <span>Bantuan</span>
-
-        </button>
-
-    </div>
-
-</aside>
-
-<!-- MAIN -->
-
-<div class="main-layout">
-
-    <!-- TOPBAR -->
-
-    <header class="topbar">
-
-        <h2>
-            Odontogram Pribadi
-        </h2>
-
-        <div class="topbar-actions">
-
-            <button class="notification-btn">
-
-                <i class="fa-solid fa-bell"></i>
-
-                <span class="notification-dot"></span>
-
-            </button>
-
-        </div>
-
-    </header>
-
-    <!-- CONTENT -->
-
-    <main class="main-content fade-in">
-
-        <!-- PAGE HEADER -->
-
-        <div class="page-header">
-
-            <h2>
-                Rekam Medis Gigi Saya
-            </h2>
-
-            <p>
-                Visualisasi riwayat perawatan gigi Anda yang tercatat di sistem.
-            </p>
-
-        </div>
-
-        <!-- ODONTOGRAM -->
-
-        <section class="odontogram-card">
-
-            <!-- LEGEND -->
-
-            <div class="legend">
-
-                <div class="legend-item">
-
-                    <div class="legend-box healthy"></div>
-
-                    <span>Sehat</span>
-
-                </div>
-
-                <div class="legend-item">
-
-                    <div class="legend-box filled"></div>
-
-                    <span>Ditambal</span>
-
-                </div>
-
-                <div class="legend-item">
-
-                    <div class="legend-box issue"></div>
-
-                    <span>Perlu Perawatan</span>
-
-                </div>
-
-                <div class="legend-item">
-
-                    <div class="legend-box missing"></div>
-
-                    <span>Hilang/Dicabut</span>
-
-                </div>
-
-            </div>
-
-            <!-- TEETH -->
-
-            <div class="teeth-wrapper">
-
-                <div id="upper-jaw" class="jaw-row">
-
-                    <div class="jaw-line"></div>
-
-                </div>
-
-                <div id="lower-jaw" class="jaw-row">
-
-                    <div class="jaw-line"></div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- HISTORY -->
-
-        <section class="history-card">
-
-            <h3 class="history-title">
-
-                <i class="fa-solid fa-clock-rotate-left"></i>
-
-                Riwayat Perawatan Detail
-
-            </h3>
-
-            <div id="treatment-history" class="history-list"></div>
-
-        </section>
-
-    </main>
-
+<div class="sidebar-brand">
+<div class="brand-icon">
+<i class="fa-solid fa-stethoscope"></i>
+</div>
+<h1 class="brand-title">Dental Link</h1>
 </div>
 
+<div class="sidebar-profile-wrapper">
+<div class="sidebar-profile">
+<div class="profile-avatar">
+<img src="https://api.dicebear.com/7.x/avataaars/svg?seed=SarahConnor&backgroundColor=b6e3f4" alt="Sarah Connor">
+</div>
+<div class="profile-info">
+<p class="profile-name">Sarah Connor</p>
+<p class="profile-status">Pasien Premium</p>
+</div>
+</div>
+</div>
+
+<nav class="sidebar-nav">
+<a href="dashboard.html" class="nav-item">
+<i class="fa-solid fa-chart-line nav-icon"></i>
+<span>Dashboard</span>
+</a>
+<a href="schedule.html" class="nav-item">
+<i class="fa-solid fa-calendar-days nav-icon"></i>
+<span>Jadwal</span>
+<span class="badge-red-nav">1</span>
+</a>
+<a href="prescriptions.html" class="nav-item">
+<i class="fa-solid fa-prescription-bottle-medical nav-icon"></i>
+<span>Preskripsi</span>
+</a>
+<a href="odontogram.html" class="nav-item active">
+<i class="fa-solid fa-tooth nav-icon"></i>
+<span>Rekam Medis</span>
+</a>
+</nav>
+
+<div class="sidebar-footer">
+<button class="nav-item">
+<i class="fa-solid fa-gear nav-icon"></i>
+<span class="font-semibold">Pengaturan</span>
+</button>
+<button class="nav-item">
+<i class="fa-solid fa-circle-question nav-icon"></i>
+<span class="font-semibold">Bantuan</span>
+</button>
+</div>
+</aside>
+
+<div class="main-wrapper">
+<header class="topbar">
+<h2 class="topbar-title">Rekam Medis Pribadi</h2>
+<div class="topbar-actions">
+<button class="btn-notification">
+<i class="fa-solid fa-bell"></i>
+<span class="notification-dot"></span>
+</button>
+</div>
+</header>
+
+<main class="dashboard-content fade-in">
+<div class="page-header">
+<h2>Rekam Medis Gigi Saya</h2>
+<p>Visualisasi kondisi dan riwayat medis gigi Anda secara real-time berdasarkan data klinis dari Dokter.</p>
+</div>
+
+<section class="odontogram-card">
+<div class="legend">
+<div class="legend-item">
+<div class="legend-box healthy"></div>
+<span>Sehat / Normal</span>
+</div>
+<div class="legend-item">
+<div class="legend-box filled"></div>
+<span>Ditambal (Filled)</span>
+</div>
+<div class="legend-item">
+<div class="legend-box issue"></div>
+<span>Karies / Perlu Perawatan</span>
+</div>
+<div class="legend-item">
+<div class="legend-box missing"></div>
+<span>Hilang / Dicabut</span>
+</div>
+<div class="legend-item">
+<div class="legend-box bridge"></div>
+<span>Pemasangan Bridge</span>
+</div>
+<div class="legend-item">
+<div class="legend-box custom"></div>
+<span>Kondisi Khusus (Custom)</span>
+</div>
+</div>
+
+<div class="teeth-wrapper">
+<div id="upper-jaw" class="jaw-row">
+<div class="jaw-line"></div>
+</div>
+<div id="lower-jaw" class="jaw-row">
+<div class="jaw-line"></div>
+</div>
+</div>
+</section>
+
+<section class="history-card">
+<h3 class="history-title" id="selected-tooth-title">
+<i class="fa-solid fa-file-waveform"></i>
+Pilih Gigi untuk Melihat Catatan Dokter
+</h3>
+<div id="selected-tooth-details" class="selected-tooth-box">
+    <div class="empty-state-note">
+        <i class="fa-solid fa-hand-pointer text-emerald-500" style="font-size: 24px; margin-bottom: 8px; display: block;"></i>
+        Silakan klik salah satu gigi pada diagram odontogram di atas untuk meninjau status klinis dan catatan dokter khusus untuk gigi tersebut.
+    </div>
+</div>
+</section>
+</main>
+</div>
+
+<div id="toast-container" class="toast-container"></div>
+
 <script>
+const LOCAL_TEETH_KEY = "dental_link_sarah_teeth";
+const LOCAL_NOTES_KEY = "dental_link_sarah_notes";
 
-const toothData = {
-
-18:0,17:0,16:1,15:0,14:0,13:0,12:0,11:0,
-21:0,22:0,23:0,24:0,25:2,26:0,27:0,28:3,
-
-48:3,47:0,46:1,45:0,44:0,43:0,42:0,41:0,
-31:0,32:0,33:0,34:0,35:0,36:0,37:0,38:0
-
-};
-
-const historyData = [
-
-{
-date:"10 Apr 2024",
-tooth:"16",
-action:"Penambalan Komposit (Tambal Putih)",
-doctor:"Dr. Jane Doe"
-},
-
-{
-date:"15 Des 2023",
-tooth:"25",
-action:"Diagnosa Karies Media (Perlu perawatan lanjutan)",
-doctor:"Dr. Smith"
-},
-
-{
-date:"02 Feb 2021",
-tooth:"18, 28, 38, 48",
-action:"Pencabutan Gigi Bungsu (Impaksi)",
-doctor:"Dr. Alan Grant"
+function loadTeethData() {
+    let localData = localStorage.getItem(LOCAL_TEETH_KEY);
+    if (!localData) {
+        const defaultTeeth = {};
+        const upper = [18,17,16,15,14,13,12,11,21,22,23,24,25,26,27,28];
+        const lower = [48,47,46,45,44,43,42,41,31,32,33,34,35,36,37,38];
+        [...upper, ...lower].forEach(num => {
+            defaultTeeth[num] = 'healthy';
+        });
+        localStorage.setItem(LOCAL_TEETH_KEY, JSON.stringify(defaultTeeth));
+        return defaultTeeth;
+    }
+    return JSON.parse(localData);
 }
 
-];
+function loadNotesData() {
+    let localNotes = localStorage.getItem(LOCAL_NOTES_KEY);
+    return localNotes ? JSON.parse(localNotes) : {};
+}
 
-function getToothClass(status){
+let toothData = loadTeethData();
+let notesData = loadNotesData();
 
-    switch(status){
+function getToothClass(status) {
+    if (status && status.startsWith('custom:')) return 'tooth-custom';
+    switch (status) {
+        case 'filled': return 'tooth-filled';
+        case 'caries': return 'tooth-issue';
+        case 'missing': return 'tooth-missing';
+        case 'bridge': return 'tooth-bridge';
+        default: return 'tooth-healthy';
+    }
+}
 
-        case 1:
-            return "tooth-filled";
+function renderJaw(teeth, containerId) {
+    const container = document.getElementById(containerId);
+    const line = container.querySelector('.jaw-line');
+    container.innerHTML = '';
+    if (line) container.appendChild(line);
 
-        case 2:
-            return "tooth-issue";
+    container.innerHTML += teeth.map(num => {
+        const status = toothData[num] || 'healthy';
+        const isSelected = selectedToothNum === num ? 'selected-tooth' : '';
+        
+        let toothInner = `
+            <div class="tooth-part"></div>
+            <div class="tooth-part"></div>
+            <div class="tooth-part"></div>
+            <div class="tooth-part"></div>
+        `;
 
-        case 3:
-            return "tooth-missing";
+        if (status === 'missing') {
+            toothInner = `<i class="fa-solid fa-xmark tooth-x"></i>`;
+        } else if (status === 'bridge') {
+            toothInner = `
+                <div class="tooth-bridge-link"></div>
+                <div class="tooth-part"></div>
+                <div class="tooth-part"></div>
+            `;
+        }
 
-        default:
-            return "tooth-healthy";
+        return `
+        <div class="tooth-container" onclick="showToothDetails(${num})">
+            <span class="tooth-number">${num}</span>
+            <div class="tooth-box ${getToothClass(status)} ${isSelected}">
+                ${toothInner}
+            </div>
+        </div>
+        `;
+    }).join("");
+}
+
+let selectedToothNum = null;
+
+function showToothDetails(num) {
+    selectedToothNum = num;
+    
+    const upper = [18,17,16,15,14,13,12,11,21,22,23,24,25,26,27,28];
+    const lower = [48,47,46,45,44,43,42,41,31,32,33,34,35,36,37,38];
+    renderJaw(upper, "upper-jaw");
+    renderJaw(lower, "lower-jaw");
+
+    const titleContainer = document.getElementById("selected-tooth-title");
+    const detailsContainer = document.getElementById("selected-tooth-details");
+
+    const status = toothData[num] || 'healthy';
+    const note = notesData[num] || '';
+
+    titleContainer.innerHTML = `<i class="fa-solid fa-tooth text-emerald-500"></i> Informasi Medis Gigi ${num}`;
+    
+    let statusText = 'Sehat / Normal';
+    let statusClass = 'healthy';
+    if (status === 'filled') { statusText = 'Ditambal (Filled)'; statusClass = 'filled'; }
+    else if (status === 'caries') { statusText = 'Karies (Perlu Perawatan)'; statusClass = 'issue'; }
+    else if (status === 'missing') { statusText = 'Hilang / Telah Dicabut'; statusClass = 'missing'; }
+    else if (status === 'bridge') { statusText = 'Pemasangan Jembatan Gigi (Bridge)'; statusClass = 'bridge'; }
+    else if (status.startsWith('custom:')) {
+        statusText = 'Diagnosis Khusus: ' + status.substring(7);
+        statusClass = 'custom';
     }
 
+    let noteContent = `<p class="doctor-note-text">${note}</p>`;
+    if (!note.trim()) {
+        noteContent = `
+            <div class="empty-doctor-note">
+                <i class="fa-solid fa-comment-slash text-gray-300"></i>
+                <span>Tidak ada catatan dari dokter.</span>
+            </div>
+        `;
+    }
+
+    detailsContainer.innerHTML = `
+        <div class="details-layout fade-in">
+            <div class="status-indicator">
+                <span class="indicator-label">Kondisi Saat Ini:</span>
+                <span class="legend-box ${statusClass}"></span>
+                <strong class="status-name-${statusClass}">${statusText}</strong>
+            </div>
+            <div class="doctor-note-section">
+                <div class="note-header">
+                    <i class="fa-solid fa-user-doctor"></i>
+                    <span>Catatan Klinis Dokter:</span>
+                </div>
+                <div class="note-body">
+                    ${noteContent}
+                </div>
+            </div>
+        </div>
+    `;
+
+    showToast(`Detail Gigi ${num} berhasil dimuat.`);
 }
 
-function renderJaw(teeth, containerId){
-
-    const container = document.getElementById(containerId);
-
-    container.innerHTML += teeth.map(num => `
-
-    <div class="tooth-container">
-
-        <span class="tooth-number">
-            ${num}
-        </span>
-
-        <div class="tooth-box ${getToothClass(toothData[num])}">
-
-            ${toothData[num] === 3 ? `
-
-            <i class="fa-solid fa-xmark tooth-x"></i>
-
-            ` : `
-
-            <div class="tooth-part"></div>
-            <div class="tooth-part"></div>
-            <div class="tooth-part"></div>
-            <div class="tooth-part"></div>
-
-            `}
-
-        </div>
-
-    </div>
-
-    `).join("");
-
+function showToast(message) {
+    const container = document.getElementById("toast-container");
+    const toast = document.createElement("div");
+    toast.className = "toast-item";
+    toast.innerHTML = `
+        <i class="fa-solid fa-circle-check text-emerald-500 text-xl"></i>
+        <span class="toast-text">${message}</span>
+    `;
+    container.appendChild(toast);
+    setTimeout(() => { toast.remove(); }, 2500);
 }
 
-function renderHistory(){
-
-    const container = document.getElementById("treatment-history");
-
-    container.innerHTML = historyData.map(item => `
-
-    <div class="history-item">
-
-        <div class="history-tooth">
-
-            ${item.tooth}
-
-        </div>
-
-        <div>
-
-            <p class="history-meta">
-
-                ${item.date} • Oleh ${item.doctor}
-
-            </p>
-
-            <p class="history-action">
-
-                ${item.action}
-
-            </p>
-
-        </div>
-
-    </div>
-
-    `).join("");
-
+function updateFromLocalStorage() {
+    toothData = loadTeethData();
+    notesData = loadNotesData();
+    const upper = [18,17,16,15,14,13,12,11,21,22,23,24,25,26,27,28];
+    const lower = [48,47,46,45,44,43,42,41,31,32,33,34,35,36,37,38];
+    renderJaw(upper, "upper-jaw");
+    renderJaw(lower, "lower-jaw");
+    if (selectedToothNum) {
+        showToothDetails(selectedToothNum);
+    }
 }
 
-renderJaw(
-[18,17,16,15,14,13,12,11,21,22,23,24,25,26,27,28],
-"upper-jaw"
-);
+updateFromLocalStorage();
 
-renderJaw(
-[48,47,46,45,44,43,42,41,31,32,33,34,35,36,37,38],
-"lower-jaw"
-);
-
-renderHistory();
-
+window.addEventListener('storage', (e) => {
+    if (e.key === LOCAL_TEETH_KEY || e.key === LOCAL_NOTES_KEY) {
+        updateFromLocalStorage();
+    }
+});
 </script>
-
 </body>
 </html>
-```

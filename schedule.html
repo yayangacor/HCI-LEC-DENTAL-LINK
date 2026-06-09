@@ -1,113 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dental Link</title>
-
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dental Link - Jadwal</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="schedule.css">
+<script src="schedule.js" defer></script>
 </head>
 <body>
-    <aside class="sidebar">
 
-  <div class="logo-container">
-    <div class="logo-icon">
-      <i class="fa-solid fa-stethoscope"></i>
-    </div>
-    <h1 class="logo-title">Dental Link</h1>
-  </div>
-
-  <div class="user-card-wrapper">
-    <div class="user-card">
-      <div class="user-avatar">
-        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=SarahConnor&backgroundColor=b6e3f4" alt="Avatar Sarah Connor">
-      </div>
-      <div class="user-info">
-        <p class="name">Sarah Connor</p>
-        <p class="role">Pasien Premium</p>
-      </div>
-    </div>
-  </div>
-
-  <nav class="nav-container">
-    <a href="dashboard.html" class="nav-item">
-      <i class="fa-solid fa-chart-line"></i>
-      <span>Dashboard</span>
-    </a>
-
-    <a href="schedule.html" class="nav-item active">
-      <i class="fa-solid fa-calendar-days"></i>
-      <span>Jadwal</span>
-      <span class="badge-red">1</span>
-    </a>
-
-    <a href="prescriptions.html" class="nav-item">
-      <i class="fa-solid fa-prescription-bottle-medical"></i>
-      <span>Preskripsi</span>
-    </a>
-
-    <a href="odontogram.html" class="nav-item">
-      <i class="fa-solid fa-tooth"></i>
-      <span>Odontogram</span>
-    </a>
-  </nav>
-
-  <div class="sidebar-footer">
-    <button class="nav-item">
-      <i class="fa-solid fa-gear"></i>
-      <span>Pengaturan</span>
-    </button>
-
-    <button class="nav-item">
-      <i class="fa-solid fa-circle-question"></i>
-      <span>Bantuan</span>
-    </button>
-  </div>
-
-</aside>
-
-<!-- MAIN WRAPPER -->
-<div class="main-wrapper">
-
-  <!-- TOPBAR -->
-  <header class="topbar">
-    <h2 class="topbar-title">Jadwal Kunjungan</h2>
-
-    <div class="topbar-actions">
-      <button class="btn-notification">
-        <i class="fa-solid fa-bell"></i>
-        <span class="notification-dot"></span>
-      </button>
-    </div>
-  </header>
-
-  <!-- CONTENT -->
-  <main class="content-area fade-in">
-    <div class="content-header">
-      <h2>Jadwal Kunjungan</h2>
-      <p>Kelola janji temu Anda dengan dokter.</p>
-    </div>
-
-    <!-- TABS CARD -->
-    <div class="tabs-card">
-      <div class="tabs-header">
-        <button class="tab-btn active">Akan Datang</button>
-        <button class="tab-btn">Riwayat</button>
-      </div>
-
-      <!-- LIST -->
-      <div id="schedule-list" class="schedule-list">
-        <!-- RENDERED BY JAVASCRIPT -->
-      </div>
-    </div>
-  </main>
-
+<aside class="sidebar">
+<div class="sidebar-brand">
+<div class="brand-icon">
+<i class="fa-solid fa-stethoscope"></i>
+</div>
+<h1 class="brand-title">Dental Link</h1>
 </div>
 
-<!-- TOAST CONTAINER -->
+<div class="sidebar-profile-wrapper">
+<div class="sidebar-profile">
+<div class="profile-avatar">
+<img src="https://api.dicebear.com/7.x/avataaars/svg?seed=SarahConnor&backgroundColor=b6e3f4" alt="Sarah Connor">
+</div>
+<div class="profile-info">
+<p class="profile-name">Sarah Connor</p>
+<p class="profile-status">Pasien Premium</p>
+</div>
+</div>
+</div>
+
+<nav class="sidebar-nav">
+<a href="dashboard.html" class="nav-item">
+<i class="fa-solid fa-chart-line nav-icon"></i>
+<span>Dashboard</span>
+</a>
+<a href="schedule.html" class="nav-item active">
+<i class="fa-solid fa-calendar-days nav-icon"></i>
+<span>Jadwal</span>
+<span class="badge-red-nav">1</span>
+</a>
+<a href="prescriptions.html" class="nav-item">
+<i class="fa-solid fa-prescription-bottle-medical nav-icon"></i>
+<span>Preskripsi</span>
+</a>
+<a href="odontogram.html" class="nav-item">
+<i class="fa-solid fa-tooth nav-icon"></i>
+<span>Rekam Medis</span>
+</a>
+</nav>
+
+<div class="sidebar-footer">
+<button class="nav-item">
+<i class="fa-solid fa-gear nav-icon"></i>
+<span class="font-semibold">Pengaturan</span>
+</button>
+<button class="nav-item">
+<i class="fa-solid fa-circle-question nav-icon"></i>
+<span class="font-semibold">Bantuan</span>
+</button>
+</div>
+</aside>
+
+<div class="main-wrapper">
+<header class="topbar">
+<h2 class="topbar-title">Jadwal Kunjungan</h2>
+<div class="topbar-actions">
+<button class="btn-notification">
+<i class="fa-solid fa-bell"></i>
+<span class="notification-dot"></span>
+</button>
+</div>
+</header>
+
+<main class="dashboard-content fade-in">
+<div class="page-header">
+<h2>Jadwal Kunjungan</h2>
+<p>Kelola janji temu Anda dengan dokter.</p>
+</div>
+
+<div class="tabs-card">
+<div class="tabs-header">
+<button id="tab-btn-upcoming" class="tab-btn active" onclick="switchTab('active')">Akan Datang</button>
+<button id="tab-btn-history" class="tab-btn" onclick="switchTab('completed')">Riwayat</button>
+</div>
+
+<div id="schedule-list" class="schedule-list">
+<!-- RENDERED BY JAVASCRIPT -->
+</div>
+</div>
+</main>
+</div>
+
+<!-- MODAL FORM RESCHEDULE -->
+<div id="reschedule-modal" class="modal-overlay">
+    <div class="modal-content modal-animate fade-in">
+        <button onclick="closeRescheduleModal()" class="btn-close-modal">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="modal-body">
+            <h3 class="services-title">
+                <i class="fa-solid fa-calendar-check text-emerald-500"></i>
+                Reschedule Janji Temu
+            </h3>
+            
+            <div class="form-group">
+                <label class="form-label">Nama Pasien</label>
+                <input type="text" id="reschedule-name" class="form-input">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Tanggal Kunjungan</label>
+                <input type="date" id="reschedule-date" class="form-input">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Waktu Kunjungan (Jam)</label>
+                <input type="time" id="reschedule-time" class="form-input">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Pilihan Layanan</label>
+                <select id="reschedule-service" class="form-input">
+                    <!-- Diisi lewat JS -->
+                </select>
+            </div>
+            
+            <button onclick="submitReschedule()" class="btn-accent" style="width: 100%; margin-top: 24px; padding: 16px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <i class="fa-solid fa-save"></i> Perbarui Jadwal
+            </button>
+        </div>
+    </div>
+</div>
+
 <div id="toast-container" class="toast-container"></div>
 </body>
 </html>

@@ -1,95 +1,91 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dental Link - Preskripsi</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="prescriptions.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dental Link - Preskripsi</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="prescriptions.css">
 </head>
 <body>
 
-    <aside class="sidebar">
-        <div class="brand">
-            <div class="brand-icon">
-                <i class="fa-solid fa-stethoscope"></i>
-            </div>
-            <h1 class="brand-title">Dental Link</h1>
-        </div>
+<aside class="sidebar">
+<div class="sidebar-brand">
+<div class="brand-icon">
+<i class="fa-solid fa-stethoscope"></i>
+</div>
+<h1 class="brand-title">Dental Link</h1>
+</div>
 
-        <div class="profile-section">
-            <div class="patient-card">
-                <div class="patient-img">
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=SarahConnor&backgroundColor=b6e3f4" alt="Sarah Connor">
-                </div>
-                <div class="patient-info">
-                    <p class="patient-name">Sarah Connor</p>
-                    <p class="patient-badge">Pasien Premium</p>
-                </div>
-            </div>
-        </div>
+<div class="sidebar-profile-wrapper">
+<div class="sidebar-profile">
+<div class="profile-avatar">
+<img src="https://api.dicebear.com/7.x/avataaars/svg?seed=SarahConnor&backgroundColor=b6e3f4" alt="Sarah Connor">
+</div>
+<div class="profile-info">
+<p class="profile-name">Sarah Connor</p>
+<p class="profile-status">Pasien Premium</p>
+</div>
+</div>
+</div>
 
-        <nav class="sidebar-nav">
-            <a href="dashboard.html" class="nav-item">
-                <i class="fa-solid fa-chart-line nav-icon"></i>
-                <span>Dashboard</span>
-            </a>
-            <a href="schedule.html" class="nav-item justify-between">
-                <div class="nav-left">
-                    <i class="fa-solid fa-calendar-days nav-icon"></i>
-                    <span>Jadwal</span>
-                </div>
-                <span class="badge">1</span>
-            </a>
-            <a href="prescriptions.html" class="nav-item active">
-                <i class="fa-solid fa-prescription-bottle-medical nav-icon"></i>
-                <span>Preskripsi</span>
-            </a>
-            <a href="odontogram.html" class="nav-item">
-                <i class="fa-solid fa-tooth nav-icon"></i>
-                <span>Odontogram</span>
-            </a>
-        </nav>
+<nav class="sidebar-nav">
+<a href="dashboard.html" class="nav-item">
+<i class="fa-solid fa-chart-line nav-icon"></i>
+<span>Dashboard</span>
+</a>
+<a href="schedule.html" class="nav-item">
+<i class="fa-solid fa-calendar-days nav-icon"></i>
+<span>Jadwal</span>
+<span class="badge-red-nav">1</span>
+</a>
+<a href="prescriptions.html" class="nav-item active">
+<i class="fa-solid fa-prescription-bottle-medical nav-icon"></i>
+<span>Preskripsi</span>
+</a>
+<a href="odontogram.html" class="nav-item">
+<i class="fa-solid fa-tooth nav-icon"></i>
+<span>Rekam Medis</span>
+</a>
+</nav>
 
-        <div class="sidebar-footer">
-            <button class="nav-item">
-                <i class="fa-solid fa-gear nav-icon"></i>
-                <span>Pengaturan</span>
-            </button>
-            <button class="nav-item">
-                <i class="fa-solid fa-circle-question nav-icon"></i>
-                <span>Bantuan</span>
-            </button>
-        </div>
-    </aside>
+<div class="sidebar-footer">
+<button class="nav-item">
+<i class="fa-solid fa-gear nav-icon"></i>
+<span class="font-semibold">Pengaturan</span>
+</button>
+<button class="nav-item">
+<i class="fa-solid fa-circle-question nav-icon"></i>
+<span class="font-semibold">Bantuan</span>
+</button>
+</div>
+</aside>
 
-    <div class="main-wrapper">
+<div class="main-wrapper">
+<header class="topbar">
+<h2 class="topbar-title">Rekam Preskripsi</h2>
+<div class="topbar-actions">
+<button class="btn-notification">
+<i class="fa-solid fa-bell"></i>
+<span class="notification-dot"></span>
+</button>
+</div>
+</header>
 
-        <header class="topbar">
-            <h2 class="topbar-title">Rekam Preskripsi</h2>
-            
-            <div class="topbar-actions">
-                <button class="notification-btn">
-                    <i class="fa-solid fa-bell"></i>
-                    <span class="notification-dot"></span>
-                </button>
-            </div>
-        </header>
+<main class="dashboard-content fade-in">
+<div class="page-header">
+<h2>Resep Obat</h2>
+<p>Daftar resep dari kunjungan medis Anda.</p>
+</div>
 
-        <main class="content fade-in">
-            <div class="page-header">
-                <h2 class="page-title">Resep Obat</h2>
-                <p class="page-subtitle">Daftar resep dari kunjungan medis Anda.</p>
-            </div>
+<div id="prescription-list" class="prescriptions-container">
+<!-- JavaScript akan memuat data di sini -->
+</div>
+</main>
+</div>
 
-            <div id="prescription-list" class="prescriptions-container">
-                </div>
-        </main>
-    </div>
-
-    <div id="toast-container" class="toast-container"></div>
-
-    <script src="prescriptions.js"></script>
+<div id="toast-container" class="toast-container"></div>
+<script src="prescriptions.js"></script>
 </body>
 </html>

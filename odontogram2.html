@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dental Link - Odontogram</title>
+    <title>Dental Link - Rekam Medis Dokter</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="odontogram2.css">
@@ -52,7 +52,7 @@
             </a>
             <a href="odontogram2.html" class="nav-item active">
                 <i class="fa-solid fa-tooth nav-icon"></i>
-                <span>Odontogram</span>
+                <span>Rekam Medis</span>
             </a>
             <a href="chat2.html" class="nav-item justify-between">
                 <div class="nav-left">
@@ -76,7 +76,6 @@
     </aside>
 
     <div class="main-wrapper">
-
         <header class="topbar">
             <div class="search-bar">
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
@@ -93,68 +92,227 @@
         </header>
 
         <main class="content">
-            <div class="page-header">
-                <div>
-                    <h2 class="page-title">Odontogram Digital</h2>
-                    <p class="page-subtitle">Bagan gigi interaktif untuk pasien Sarah Connor.</p>
+            <!-- LAYAR 1: PEMILIHAN PASIEN (Layar Awal) -->
+            <div id="patient-selection-screen" class="patient-selection-view fade-in">
+                <div class="page-header">
+                    <div>
+                        <h2 class="page-title">Pilih Rekam Medis Pasien</h2>
+                        <p class="page-subtitle">Silakan pilih pasien aktif Anda untuk membuka dan mengelola odontogram digital.</p>
+                    </div>
                 </div>
-                <div class="header-actions">
-                    <button class="btn-outline">
-                        <i class="fa-solid fa-download"></i>
-                        Simpan Template
-                    </button>
-                    <button class="btn-primary">
-                        Finalisasi Rekam Medis
-                    </button>
+
+                <div class="patients-selection-grid">
+                    <div class="patient-select-card active-patient" onclick="openPatientOdontogram('Sarah Connor')">
+                        <div class="patient-card-header">
+                            <div class="p-avatar">SC</div>
+                            <div class="p-basic-info">
+                                <h4 class="p-name">Sarah Connor</h4>
+                                <p class="p-gender-age">Perempuan • 28 Tahun</p>
+                            </div>
+                            <span class="status-indicator-active">Aktif</span>
+                        </div>
+                        <div class="patient-card-body">
+                            <div class="info-row">
+                                <i class="fa-solid fa-phone"></i>
+                                <span>+62 812-3456-7890</span>
+                            </div>
+                            <div class="info-row">
+                                <i class="fa-solid fa-calendar"></i>
+                                <span>Kunjungan Terakhir: 12 Okt 2023</span>
+                            </div>
+                            <div class="info-row">
+                                <i class="fa-solid fa-heart-pulse"></i>
+                                <span class="badge-orange-text">Hipersensitivitas</span>
+                            </div>
+                        </div>
+                        <button class="btn-card-select">
+                            <i class="fa-solid fa-folder-open"></i> Buka Rekam Medis
+                        </button>
+                    </div>
+
+                    <div class="patient-select-card locked-patient" onclick="showLockedNotification('John Doe')">
+                        <div class="patient-card-header">
+                            <div class="p-avatar gray-avatar">JD</div>
+                            <div class="p-basic-info">
+                                <h4 class="p-name">John Doe</h4>
+                                <p class="p-gender-age">Laki-laki • 34 Tahun</p>
+                            </div>
+                            <span class="status-indicator-locked"><i class="fa-solid fa-lock"></i> Terkunci</span>
+                        </div>
+                        <div class="patient-card-body">
+                            <div class="info-row">
+                                <i class="fa-solid fa-phone"></i>
+                                <span>+62 812-3456-7891</span>
+                            </div>
+                            <div class="info-row">
+                                <i class="fa-solid fa-calendar"></i>
+                                <span>Kunjungan Terakhir: 15 Okt 2023</span>
+                            </div>
+                        </div>
+                        <button class="btn-card-select btn-locked" disabled>
+                            <i class="fa-solid fa-ban"></i> Khusus Demo Sarah
+                        </button>
+                    </div>
+
+                    <div class="patient-select-card locked-patient" onclick="showLockedNotification('Mike Ross')">
+                        <div class="patient-card-header">
+                            <div class="p-avatar gray-avatar">MR</div>
+                            <div class="p-basic-info">
+                                <h4 class="p-name">Mike Ross</h4>
+                                <p class="p-gender-age">Laki-laki • 26 Tahun</p>
+                            </div>
+                            <span class="status-indicator-locked"><i class="fa-solid fa-lock"></i> Terkunci</span>
+                        </div>
+                        <div class="patient-card-body">
+                            <div class="info-row">
+                                <i class="fa-solid fa-phone"></i>
+                                <span>+62 812-3456-7892</span>
+                            </div>
+                            <div class="info-row">
+                                <i class="fa-solid fa-calendar"></i>
+                                <span>Kunjungan Terakhir: 18 Okt 2023</span>
+                            </div>
+                        </div>
+                        <button class="btn-card-select btn-locked" disabled>
+                            <i class="fa-solid fa-ban"></i> Khusus Demo Sarah
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            <div class="odontogram-card">
-                <div class="odontogram-container">
-                    <div class="jaw" id="upper-jaw">
-                        <div class="jaw-line"></div>
+            <!-- LAYAR 2: DETAIL REKAM MEDIS GIGI (Disembunyikan awalnya) -->
+            <div id="odontogram-main-screen" class="odontogram-main-view hidden fade-in">
+                <div class="page-header">
+                    <div>
+                        <div class="back-link-wrapper" onclick="backToPatientSelection()">
+                            <i class="fa-solid fa-arrow-left"></i> Kembali ke Daftar Pasien
+                        </div>
+                        <h2 class="page-title">Rekam Medis Digital</h2>
+                        <p class="page-subtitle">Bagan odontogram gigi interaktif untuk pasien: <strong class="highlight-patient">Sarah Connor</strong></p>
                     </div>
-                    <div class="jaw" id="lower-jaw">
-                        <div class="jaw-line"></div>
+                    <div class="header-actions">
+                        <button class="btn-primary" onclick="useClinicalTemplate()">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            Gunakan Template Kami
+                        </button>
                     </div>
                 </div>
-            </div>
 
-            <div class="info-grid">
-                <div class="legend-card">
-                    <h4 class="legend-title">
-                        <div class="dot red-dot"></div>
-                        Keterangan Kondisi
-                    </h4>
-                    <div class="legend-items">
-                        <div class="legend-item">
-                            <div class="legend-box red-box"></div>
-                            Caries
+                <div class="odontogram-card">
+                    <div class="odontogram-container">
+                        <div class="jaw" id="upper-jaw">
+                            <div class="jaw-line"></div>
                         </div>
-                        <div class="legend-item">
-                            <div class="legend-box blue-box"></div>
-                            Filled
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-box gray-box"></div>
-                            Missing
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-box purple-box"></div>
-                            Bridge
+                        <div class="jaw" id="lower-jaw">
+                            <div class="jaw-line"></div>
                         </div>
                     </div>
                 </div>
 
-                <div class="notes-card">
-                    <div class="notes-content">
-                        <h4 class="notes-title" id="note-title">Catatan Detail</h4>
-                        <textarea id="tooth-note" rows="4" placeholder="Pilih gigi untuk mulai menulis catatan..." class="notes-textarea"></textarea>
+                <div class="info-grid">
+                    <div class="legend-card">
+                        <h4 class="legend-title">
+                            <div class="dot red-dot"></div>
+                            Kondisi Gigi Terpilih
+                        </h4>
+                        <p class="legend-description">Pilih gigi pada bagan lalu klik salah satu kondisi di bawah ini untuk mengubah status:</p>
+                        
+                        <div class="status-selection-options">
+                            <button onclick="setToothStatus('healthy')" class="status-option-btn healthy-opt" id="opt-healthy">
+                                <div class="color-indicator healthy-box"></div>
+                                <span class="opt-label">Healthy / Normal</span>
+                            </button>
+                            <button onclick="setToothStatus('caries')" class="status-option-btn caries-opt" id="opt-caries">
+                                <div class="color-indicator red-box"></div>
+                                <span class="opt-label">Caries (Karies)</span>
+                            </button>
+                            <button onclick="setToothStatus('filled')" class="status-option-btn filled-opt" id="opt-filled">
+                                <div class="color-indicator blue-box"></div>
+                                <span class="opt-label">Filled (Ditambal)</span>
+                            </button>
+                            <button onclick="setToothStatus('missing')" class="status-option-btn missing-opt" id="opt-missing">
+                                <div class="color-indicator gray-box"></div>
+                                <span class="opt-label">Missing (Dicabut)</span>
+                            </button>
+                            <button onclick="setToothStatus('bridge')" class="status-option-btn bridge-opt" id="opt-bridge">
+                                <div class="color-indicator purple-box"></div>
+                                <span class="opt-label">Bridge (Jembatan Gigi)</span>
+                            </button>
+                            <button onclick="setToothStatus('custom')" class="status-option-btn custom-opt" id="opt-custom">
+                                <div class="color-indicator yellow-box"></div>
+                                <span class="opt-label">Custom Deskripsi</span>
+                            </button>
+                        </div>
+
+                        <!-- Panel Input Custom Deskripsi -->
+                        <div id="custom-status-wrapper" class="custom-input-section hidden">
+                            <label class="form-label-custom">Isi Deskripsi Kustom Gigi:</label>
+                            <div class="custom-input-group">
+                                <input type="text" id="custom-status-text" class="form-input-custom" placeholder="Misal: Gigi Goyang, Abses, Impaksi..." oninput="saveCustomStatus()">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="notes-card">
+                        <div class="notes-content">
+                            <div class="note-header-wrap">
+                                <h4 class="notes-title" id="note-title">Catatan Detail</h4>
+                                <span class="selected-badge-indicator" id="tooth-selected-indicator">Pilih gigi</span>
+                            </div>
+                            
+                            <div class="live-description-display" id="live-desc-box">
+                                <span class="desc-placeholder">Belum ada kondisi gigi yang dipilih.</span>
+                            </div>
+
+                            <textarea id="tooth-note" rows="5" placeholder="Pilih gigi pada bagan untuk mulai menulis catatan medis..." class="notes-textarea"></textarea>
+                            
+                            <div class="note-action-footer-flex">
+                                <button onclick="submitToothNote()" class="btn-submit-note">
+                                    <i class="fa-solid fa-circle-check"></i> Simpan Catatan Klinis
+                                </button>
+                                <span class="save-status-text"><i class="fa-solid fa-circle-info"></i> Klik simpan untuk sinkronisasi ke pasien</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="prescription-form-card fade-in">
+                    <h3 class="prescription-card-title">
+                        <i class="fa-solid fa-prescription-bottle-medical"></i> Form Preskripsi Obat Pasien
+                    </h3>
+                    <p class="prescription-card-subtitle">Gunakan formulir di bawah ini untuk meresepkan obat penunjang medis.</p>
+                    
+                    <div class="prescription-form-grid">
+                        <div class="form-group">
+                            <label class="form-label">Nama Obat <span class="text-required">*</span></label>
+                            <input type="text" id="rx-name" class="form-input" placeholder="Contoh: Amoxicillin 500mg atau Ibuprofen">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Jumlah Obat <span class="text-required">*</span></label>
+                            <input type="text" id="rx-quantity" class="form-input" placeholder="Contoh: 10 Tablet atau 1 Botol">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Aturan Pakai / Konsumsi <span class="text-required">*</span></label>
+                            <input type="text" id="rx-frequency" class="form-input" placeholder="Contoh: 3 x sehari sesudah makan">
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 16px;">
+                        <label class="form-label">Deskripsi & Catatan Konsumsi Obat</label>
+                        <textarea id="rx-notes" rows="3" class="form-input" placeholder="Tuliskan petunjuk tambahan khusus, misal: Harus dihabiskan untuk antibiotik..."></textarea>
+                    </div>
+
+                    <div class="prescription-submit-wrap">
+                        <button type="button" onclick="submitPrescription()" class="btn-rx-submit">
+                            <i class="fa-solid fa-paper-plane"></i> Berikan Preskripsi Obat
+                        </button>
                     </div>
                 </div>
             </div>
         </main>
     </div>
+
+    <div id="toast-container" class="toast-container"></div>
 
     <script src="odontogram2.js"></script>
 </body>
