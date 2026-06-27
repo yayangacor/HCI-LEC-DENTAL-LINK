@@ -412,3 +412,37 @@ window.addEventListener('storage', function(e) {
         renderPatientChat();
     }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const hamburgerToggle = document.getElementById("hamburger-toggle");
+    const sidebar = document.querySelector(".sidebar");
+    
+    // Buat element overlay secara dinamis agar HTML tetap bersih
+    const overlay = document.createElement("div");
+    overlay.className = "sidebar-overlay";
+    document.body.appendChild(overlay);
+
+    // Fungsi membuka / menutup sidebar
+    function toggleSidebar() {
+        sidebar.classList.toggle("active");
+        overlay.classList.toggle("show");
+    }
+
+    // Event listener saat hamburger diklik
+    if (hamburgerToggle) {
+        hamburgerToggle.addEventListener("click", toggleSidebar);
+    }
+
+    // Event listener saat area luar sidebar (overlay) diklik untuk menutup menu
+    overlay.addEventListener("click", toggleSidebar);
+
+    // Otomatis tutup sidebar jika pengguna menekan link navigasi internal
+    const navLinks = document.querySelectorAll(".sidebar-nav .nav-item");
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            if (sidebar.classList.contains("active")) {
+                toggleSidebar();
+            }
+        });
+    });
+});

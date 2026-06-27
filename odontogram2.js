@@ -30,7 +30,6 @@ function loadSarahOdontogramData() {
     }
 }
 
-// Helper untuk mengekstrak tipe status dasar jika diawali prefix "custom:"
 function getToothBaseStatus(statusString) {
     if (statusString && statusString.startsWith("custom:")) {
         return "custom";
@@ -128,7 +127,6 @@ function selectTooth(num) {
     noteInput.value = currentNote;
     noteInput.placeholder = `Masukkan observasi klinis medis khusus untuk gigi nomor ${num}...`;
 
-    // Menghapus kelas 'active-status' dari semua tombol selector kondisi
     document.querySelectorAll(".status-option-btn").forEach(btn => {
         btn.classList.remove("active-status");
     });
@@ -139,12 +137,10 @@ function selectTooth(num) {
     const customWrapper = document.getElementById("custom-status-wrapper");
     const customInput = document.getElementById("custom-status-text");
 
-    // Efek menyala hijau pada kondisi terpilih (Glow Active Class)
     if (statusBase === "custom") {
         document.getElementById("opt-custom").classList.add("active-status");
         customWrapper.classList.remove("hidden");
         
-        // Memasukkan teks custom yang ada jika ada
         const customValue = rawStatus.startsWith("custom:") ? rawStatus.substring(7) : "";
         customInput.value = customValue;
     } else {
@@ -244,7 +240,6 @@ function setToothStatus(status) {
     }
 }
 
-// Menyimpan input custom deskripsi saat diketik dokter
 function saveCustomStatus() {
     if (!selectedToothNum) return;
     const customInput = document.getElementById("custom-status-text");
@@ -264,7 +259,6 @@ function saveCustomStatus() {
     }
 }
 
-// Fungsi Submit Catatan Spesifik (Sesuai Permintaan)
 function submitToothNote() {
     if (!selectedToothNum) {
         showToast("Silakan pilih gigi terlebih dahulu pada bagan di atas!", "error");
@@ -314,7 +308,6 @@ function useClinicalTemplate() {
     const noteInput = document.getElementById("tooth-note");
     noteInput.value = templateText;
     
-    // Kita biarkan dokter menyunting template dulu sebelum menekan "Simpan Catatan"
     noteInput.focus();
     showToast(`Template medis berhasil dipasang pada Gigi ${selectedToothNum}! Silakan klik Simpan Catatan.`);
 }
@@ -355,3 +348,32 @@ function showToast(message, type = "success") {
         toast.remove();
     }, 3000);
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const hamburgerToggle = document.getElementById("hamburger-toggle");
+    const sidebar = document.querySelector(".sidebar");
+    
+    const overlay = document.createElement("div");
+    overlay.className = "sidebar-overlay";
+    document.body.appendChild(overlay);
+
+    function toggleSidebar() {
+        sidebar.classList.toggle("active");
+        overlay.classList.toggle("show");
+    }
+
+    if (hamburgerToggle) {
+        hamburgerToggle.addEventListener("click", toggleSidebar);
+    }
+
+    overlay.addEventListener("click", toggleSidebar);
+
+    const navLinks = document.querySelectorAll(".sidebar-nav .nav-item");
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            if (sidebar.classList.contains("active")) {
+                toggleSidebar();
+            }
+        });
+    });
+});

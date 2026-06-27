@@ -98,5 +98,33 @@ function showToast(message) {
     }, 3000);
 }
 
-// Render data saat halaman dimuat
 renderPrescriptions();
+
+document.addEventListener("DOMContentLoaded", function () {
+    const hamburgerToggle = document.getElementById("hamburger-toggle");
+    const sidebar = document.querySelector(".sidebar");
+    
+    const overlay = document.createElement("div");
+    overlay.className = "sidebar-overlay";
+    document.body.appendChild(overlay);
+
+    function toggleSidebar() {
+        sidebar.classList.toggle("active");
+        overlay.classList.toggle("show");
+    }
+
+    if (hamburgerToggle) {
+        hamburgerToggle.addEventListener("click", toggleSidebar);
+    }
+
+    overlay.addEventListener("click", toggleSidebar);
+
+    const navLinks = document.querySelectorAll(".sidebar-nav .nav-item");
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            if (sidebar.classList.contains("active")) {
+                toggleSidebar();
+            }
+        });
+    });
+});

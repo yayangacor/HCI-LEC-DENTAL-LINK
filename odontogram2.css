@@ -1,4 +1,3 @@
-/* STREAMING_CHUNK:Declaring basic doctor style variables... */
 :root {
 --bg-body: #f8fafc;
 --bg-white: #ffffff;
@@ -29,15 +28,9 @@
 --gray-100: #f3f4f6; --gray-400: #9ca3af;
 --purple-100: #f3e8ff; --purple-500: #a855f7;
 --amber-100: #fef3c7; --amber-500: #f59e0b;
-
-
 }
 
-*{ 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
-}
+*{ margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-body); color: var(--text-dark); overflow-x: hidden; }
 a { text-decoration: none; }
 button { cursor: pointer; border: none; background: none; font-family: inherit; }
@@ -49,7 +42,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 .fade-in { animation: fadeIn 0.4s ease forwards; }
 
-/* STREAMING_CHUNK:Designing sidebar and navigation for clinical team... */
 .sidebar { width: 256px; height: 100vh; background-color: var(--bg-white); border-right: 1px solid var(--border-color); display: flex; flex-direction: column; position: fixed; left: 0; top: 0; z-index: 20; }
 .brand { padding: 24px; display: flex; align-items: center; gap: 12px; }
 .brand-icon { width: 36px; height: 36px; background-color: var(--emerald-600); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; box-shadow: 0 10px 15px -3px rgba(167, 243, 208, 0.5); }
@@ -79,7 +71,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .main-wrapper { margin-left: 256px; min-height: 100vh; display: flex; flex-direction: column; }
 
-/* STREAMING_CHUNK:Positioning clinical topbar features... */
 .topbar { height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; background-color: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 10; }
 .search-bar { position: relative; width: 384px; }
 .search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: #94a3b8; }
@@ -101,7 +92,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .btn-primary { background-color: var(--primary-hover); color: white; padding: 12px 24px; border-radius: 16px; font-size: 14px; font-weight: 700; box-shadow: 0 10px 15px -3px #a7f3d0; transition: background-color 0.3s; display: flex; align-items: center; gap: 8px; }
 .btn-primary:hover { background-color: var(--emerald-700); }
 
-/* STREAMING_CHUNK:Positioning patient cards in doctor selection view... */
 .patient-selection-view { width: 100%; }
 .patients-selection-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; margin-top: 24px; }
 .patient-select-card { background: #fff; border-radius: 28px; padding: 24px; border: 1px solid var(--border-color); box-shadow: 0 1px 3px rgba(0,0,0,0.02); display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s; position: relative; }
@@ -130,7 +120,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .back-link-wrapper { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-muted); font-weight: 700; cursor: pointer; margin-bottom: 8px; transition: color 0.2s; }
 .back-link-wrapper:hover { color: var(--emerald-600); }
 
-/* STREAMING_CHUNK:Styling dental odontogram canvas... */
 .odontogram-card { background-color: var(--bg-white); border-radius: 32px; padding: 48px; border: 1px solid var(--border-color); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05); overflow-x: auto; }
 .odontogram-container { min-width: 900px; display: flex; flex-direction: column; gap: 80px; }
 .jaw { display: flex; justify-content: space-between; padding: 0 40px; position: relative; }
@@ -155,7 +144,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .tooth-x-mark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--gray-400); font-size: 18px; z-index: 5; }
 .tooth-bridge-bar { position: absolute; width: 100%; height: 8px; background: var(--purple-500); top: calc(50% - 4px); left: 0; z-index: 4; }
 
-/* STREAMING_CHUNK:Styling diagnostic indicators and glow active effect... */
 .info-grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 12px; }
 @media (min-width: 768px) { .info-grid { grid-template-columns: repeat(3, 1fr); } }
 
@@ -169,7 +157,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .status-option-btn { width: 100%; display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 14px; border: 1px solid var(--border-color); text-align: left; font-size: 13px; font-weight: 700; color: var(--text-dark); transition: all 0.25s ease; position: relative; }
 .status-option-btn:hover { background-color: var(--slate-50); transform: translateX(2px); border-color: var(--emerald-200); }
 
-/* Efek Glow Hijau Saat Kondisi Terpilih Di-klik (Menyala Aktif) */
 .status-option-btn.active-status {
 border-color: var(--emerald-500) !important;
 background-color: var(--emerald-50) !important;
@@ -186,7 +173,6 @@ transform: scale(1.02) translateX(3px);
 .purple-box { background-color: #f3e8ff; border-color: #c084fc; }
 .yellow-box { background-color: var(--amber-100); border-color: var(--amber-500); }
 
-/* Custom Input Field Status */
 .custom-input-section {
 margin-top: 18px;
 padding: 16px;
@@ -219,7 +205,6 @@ transition: border-color 0.2s;
 border-color: var(--primary);
 }
 
-/* STREAMING_CHUNK:Designing clinical comments and submit panel... */
 .notes-card { grid-column: span 1; background-color: var(--primary-dark); color: white; padding: 32px; border-radius: 32px; position: relative; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(6, 78, 59, 0.2); display: flex; flex-direction: column; }
 @media (min-width: 768px) { .notes-card { grid-column: span 2; } }
 .notes-content { position: relative; z-index: 10; height: 100%; display: flex; flex-direction: column; gap: 14px; }
@@ -235,7 +220,6 @@ border-color: var(--primary);
 .notes-textarea::placeholder { color: rgba(255, 255, 255, 0.45); }
 .notes-textarea:focus { border-color: #34d399; background-color: rgba(255, 255, 255, 0.12); }
 
-/* Tombol Submit Catatan Baru */
 .note-action-footer-flex {
 display: flex;
 flex-direction: column;
@@ -262,7 +246,6 @@ transform: translateY(-1px);
 }
 .save-status-text { font-size: 11px; color: rgba(255,255,255,0.6); display: flex; align-items: center; gap: 4px; }
 
-/* STREAMING_CHUNK:Designing patient prescriptions layouts... */
 .prescription-form-card { background: #fff; border-radius: 32px; padding: 32px; border: 1px solid var(--border-color); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05); margin-top: 12px; }
 .prescription-card-title { font-size: 20px; font-weight: 800; color: var(--text-dark); display: flex; align-items: center; gap: 10px; }
 .prescription-card-title i { color: var(--emerald-600); }
@@ -287,3 +270,54 @@ transform: translateY(-1px);
 
 @keyframes modalUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 .hidden { display: none !important; }
+
+
+/* =========================================================
+   RESPONSIVE MOBILE
+   ========================================================= */
+
+.btn-hamburger { display: none; font-size: 20px; color: var(--text-muted); padding: 8px; margin-right: 8px; }
+.topbar-left { display: flex; align-items: center; }
+
+.sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(2px);
+    z-index: 15;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.show { display: block; opacity: 1; }
+
+@media (max-width: 767.98px) {
+    .btn-hamburger { display: block; }
+
+    .sidebar { left: -256px; transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .sidebar.active { left: 0; }
+    
+    .main-wrapper { margin-left: 0; }
+    .topbar { padding: 0 16px; }
+    .content { padding: 16px; }
+    
+    .search-bar { width: 100%; max-width: 200px; }
+    .search-input { padding: 10px 16px 10px 36px; }
+    .search-icon { left: 12px; }
+
+    .page-title { font-size: 24px; }
+    
+    .patient-selection-view .patients-selection-grid { grid-template-columns: 1fr; }
+    .odontogram-card { padding: 16px; }
+    .jaw { padding: 0 10px; }
+    .info-grid { grid-template-columns: 1fr; }
+    
+    .notes-card { padding: 24px; }
+    
+    .prescription-form-grid { grid-template-columns: 1fr; }
+    .prescription-form-card { padding: 24px; }
+
+    .toast-container { bottom: 16px; right: 16px; left: 16px; }
+    .toast-item { width: 100%; justify-content: center; }
+}

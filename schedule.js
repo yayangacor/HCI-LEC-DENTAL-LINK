@@ -261,5 +261,55 @@ function showToast(message) {
     }, 3000);
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+    // --- LOGIKA HAMBURGER MENU SIDEBAR ---
+    const hamburgerToggle = document.getElementById("hamburger-toggle");
+    const sidebar = document.querySelector(".sidebar");
+    
+    // Membuat elemen overlay secara dinamis di dalam dokumen
+    const overlay = document.createElement("div");
+    overlay.className = "sidebar-overlay";
+    document.body.appendChild(overlay);
+
+    function toggleSidebar() {
+        sidebar.classList.toggle("active");
+        overlay.classList.toggle("show");
+    }
+
+    if (hamburgerToggle) {
+        hamburgerToggle.addEventListener("click", toggleSidebar);
+    }
+
+    // Menutup sidebar jika area luar (overlay) diklik
+    overlay.addEventListener("click", toggleSidebar);
+
+    // Otomatis menutup menu saat link navigasi di klik (opsional)
+    const navLinks = document.querySelectorAll(".sidebar-nav .nav-item");
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            if (sidebar.classList.contains("active")) {
+                toggleSidebar();
+            }
+        });
+    });
+});
+
+// Contoh fungsi switchTab bawaan agar kode Anda tidak error
+function switchTab(status) {
+    const upcomingBtn = document.getElementById('tab-btn-upcoming');
+    const historyBtn = document.getElementById('tab-btn-history');
+    
+    if (status === 'active') {
+        upcomingBtn.classList.add('active');
+        historyBtn.classList.remove('active');
+        // Logika render data jadwal aktif Anda di sini...
+    } else {
+        historyBtn.classList.add('active');
+        upcomingBtn.classList.remove('active');
+        // Logika render data riwayat Anda di sini...
+    }
+}
+
+
 // Inisialisasi awal render
 renderSchedule();

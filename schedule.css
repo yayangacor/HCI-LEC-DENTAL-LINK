@@ -118,3 +118,119 @@ button { cursor: pointer; border: none; background: transparent; font-family: in
 .form-input { width: 100%; padding: 12px 16px; border-radius: 12px; border: 1px solid var(--gray-200); background-color: var(--slate-50); font-size: 14px; transition: border-color 0.3s; }
 .form-input:focus { border-color: var(--emerald-500); outline: none; }
 select.form-input { appearance: none; background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e"); background-repeat: no-repeat; background-position: right 16px center; background-size: 16px; padding-right: 40px; }
+
+
+/* --- RESPONSIVE MOBILE & HAMBURGER SIDEBAR --- */
+
+/* Tombol hamburger default disembunyikan di layar desktop */
+.btn-hamburger {
+    display: none;
+    font-size: 20px;
+    color: var(--gray-600);
+    padding: 8px;
+    margin-right: 12px;
+}
+
+.topbar-left {
+    display: flex;
+    align-items: center;
+}
+
+/* Background overlay transparan saat sidebar mobile aktif */
+.sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(2px);
+    z-index: 15;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.show {
+    display: block;
+    opacity: 1;
+}
+
+/* Media Query untuk Perangkat Mobile (Lebar Layar < 768px) */
+@media (max-width: 767.98px) {
+    .btn-hamburger {
+        display: block; /* Munculkan hamburger di mobile */
+    }
+
+    .sidebar {
+        left: -256px; /* Sembunyikan sidebar ke kiri luar layar */
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Class utility yang di-trigger via JavaScript */
+    .sidebar.active {
+        left: 0; /* Geser masuk sidebar */
+    }
+
+    .main-wrapper {
+        margin-left: 0; /* Hilangkan space sidebar karena layout bertumpuk */
+    }
+
+    .topbar {
+        padding: 0 16px;
+    }
+
+    .dashboard-content {
+        padding: 16px;
+    }
+
+    .page-header h2 {
+        font-size: 24px;
+    }
+
+    /* Optimasi komponen list jadwal di mobile */
+    .tabs-header {
+        padding: 12px 16px;
+        gap: 16px;
+    }
+
+    .schedule-list {
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .schedule-card {
+        padding: 16px;
+        border-radius: 20px;
+        gap: 16px;
+    }
+
+    .schedule-main-info {
+        gap: 12px;
+    }
+
+    .date-badge {
+        width: 54px;
+        height: 54px;
+        border-radius: 12px;
+    }
+
+    .date-day {
+        font-size: 20px;
+    }
+
+    .appointment-title {
+        font-size: 16px;
+    }
+
+    /* Tombol aksi tersusun vertikal penuh di mobile */
+    .action-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+    }
+
+    .btn-secondary, .btn-accent {
+        width: 100%;
+        padding: 10px 14px;
+        font-size: 13px;
+        border-radius: 12px;
+    }
+}

@@ -1017,3 +1017,76 @@ select.form-input {
         justify-content: center;
     }
 }
+
+
+
+/* --- RESPONSIVE MOBILE & HAMBURGER SIDEBAR --- */
+
+/* Style tombol hamburger (default tersembunyi di desktop) */
+.btn-hamburger {
+    display: none;
+    font-size: 20px;
+    color: var(--gray-600);
+    padding: 8px;
+    margin-right: 12px;
+}
+
+.topbar-left {
+    display: flex;
+    align-items: center;
+}
+
+/* Layer hitam transparan di belakang sidebar saat aktif di mobile */
+.sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(2px);
+    z-index: 15;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.show {
+    display: block;
+    opacity: 1;
+}
+
+/* Media Query Khusus Mobile (Screen di bawah 768px) */
+@media (max-width: 767.98px) {
+    .btn-hamburger {
+        display: block; /* Munculkan hamburger di mobile */
+    }
+
+    .sidebar {
+        left: -256px; /* Sembunyikan sidebar ke kiri luar layar */
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Class utilities saat sidebar dibuka via JS */
+    .sidebar.active {
+        left: 0; /* Geser sidebar masuk ke dalam layar */
+    }
+
+    .main-wrapper {
+        margin-left: 0; /* Hilangkan margin kiri karena sidebar melayang */
+    }
+
+    .topbar {
+        padding: 0 16px;
+    }
+
+    .dashboard-content {
+        padding: 16px;
+    }
+
+    .hero-title {
+        font-size: 28px;
+    }
+
+    .hero-card {
+        padding: 24px;
+        border-radius: 24px;
+    }
+}

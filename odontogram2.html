@@ -77,9 +77,14 @@
 
     <div class="main-wrapper">
         <header class="topbar">
-            <div class="search-bar">
-                <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                <input type="text" placeholder="Cari data odontogram..." class="search-input">
+            <div class="topbar-left">
+                <button id="hamburger-toggle" class="btn-hamburger">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="search-bar">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" placeholder="Cari data odontogram..." class="search-input">
+                </div>
             </div>
             
             <div class="topbar-actions">
@@ -92,7 +97,6 @@
         </header>
 
         <main class="content">
-            <!-- LAYAR 1: PEMILIHAN PASIEN (Layar Awal) -->
             <div id="patient-selection-screen" class="patient-selection-view fade-in">
                 <div class="page-header">
                     <div>
@@ -180,7 +184,6 @@
                 </div>
             </div>
 
-            <!-- LAYAR 2: DETAIL REKAM MEDIS GIGI (Disembunyikan awalnya) -->
             <div id="odontogram-main-screen" class="odontogram-main-view hidden fade-in">
                 <div class="page-header">
                     <div>
@@ -244,7 +247,6 @@
                             </button>
                         </div>
 
-                        <!-- Panel Input Custom Deskripsi -->
                         <div id="custom-status-wrapper" class="custom-input-section hidden">
                             <label class="form-label-custom">Isi Deskripsi Kustom Gigi:</label>
                             <div class="custom-input-group">

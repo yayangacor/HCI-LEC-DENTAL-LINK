@@ -64,3 +64,36 @@ ${p.name.charAt(0)}
 </tr>
 `;
 }).join("");
+
+const hamburgerToggle = document.getElementById("hamburger-toggle");
+const sidebar = document.querySelector(".sidebar");
+
+if (hamburgerToggle && sidebar) {
+    let overlay = document.querySelector(".sidebar-overlay");
+    if (!overlay) {
+        overlay = document.createElement("div");
+        overlay.className = "sidebar-overlay";
+        document.body.appendChild(overlay);
+    }
+
+    function toggleSidebar() {
+        sidebar.classList.toggle("active");
+        overlay.classList.toggle("show");
+    }
+
+    hamburgerToggle.addEventListener("click", function(e) {
+        e.preventDefault();
+        toggleSidebar();
+    });
+
+    overlay.addEventListener("click", toggleSidebar);
+
+    const navLinks = document.querySelectorAll(".sidebar-nav .nav-item");
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            if (sidebar.classList.contains("active")) {
+                toggleSidebar();
+            }
+        });
+    });
+}

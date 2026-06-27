@@ -96,3 +96,31 @@ patientList.innerHTML = patients.map(patient => `
         </td>
     </tr>
 `).join("");
+
+document.addEventListener("DOMContentLoaded", function () {
+    const hamburgerToggle = document.getElementById("hamburger-toggle");
+    const sidebar = document.querySelector(".sidebar");
+    
+    if (!hamburgerToggle || !sidebar) return; 
+
+    const overlay = document.createElement("div");
+    overlay.className = "sidebar-overlay";
+    document.body.appendChild(overlay);
+
+    function toggleSidebar() {
+        sidebar.classList.toggle("active");
+        overlay.classList.toggle("show");
+    }
+
+    hamburgerToggle.addEventListener("click", toggleSidebar);
+    overlay.addEventListener("click", toggleSidebar);
+
+    const navLinks = document.querySelectorAll(".sidebar-nav .nav-item");
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            if (sidebar.classList.contains("active")) {
+                toggleSidebar();
+            }
+        });
+    });
+});

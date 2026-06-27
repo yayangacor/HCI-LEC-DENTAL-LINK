@@ -3,14 +3,12 @@ const grid = document.getElementById("calendar-grid");
 
 let html = "";
 
-// Render header hari
 html += days.map(day => `
   <div class="calendar-day-header">
     ${day}
   </div>
 `).join("");
 
-// Render tanggal 1 sampai 31
 for (let i = 1; i <= 31; i++) {
   const today = i === 24;
 
@@ -38,3 +36,32 @@ for (let i = 1; i <= 31; i++) {
 }
 
 grid.innerHTML = html;
+
+document.addEventListener("DOMContentLoaded", function () {
+    const hamburgerToggle = document.getElementById("hamburger-toggle");
+    const sidebar = document.querySelector(".sidebar");
+    
+    const overlay = document.createElement("div");
+    overlay.className = "sidebar-overlay";
+    document.body.appendChild(overlay);
+
+    function toggleSidebar() {
+        sidebar.classList.toggle("active");
+        overlay.classList.toggle("show");
+    }
+
+    if (hamburgerToggle) {
+        hamburgerToggle.addEventListener("click", toggleSidebar);
+    }
+
+    overlay.addEventListener("click", toggleSidebar);
+
+    const navLinks = document.querySelectorAll(".sidebar-nav .nav-item");
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            if (sidebar.classList.contains("active")) {
+                toggleSidebar();
+            }
+        });
+    });
+});
