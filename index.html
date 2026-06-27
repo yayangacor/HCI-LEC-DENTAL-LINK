@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental Link - Platform Kesehatan Gigi</title>
+
+    <link rel="stylesheet" href="index.css">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar container">
+
+        <div class="logo">
+            <i class="fa-solid fa-stethoscope text-brand-green"></i>
+            Dental Link
+        </div>
+
+        <div class="nav-links">
+            <a href="#">Layanan</a>
+            <a href="#">Tentang Kami</a>
+        </div>
+
+        <div class="nav-empty"></div>
+
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero container">
+
+        <!-- Left Content -->
+        <div class="hero-content">
+
+            <div class="badge">
+                <i class="fa-regular fa-circle-check"></i>
+                Platform Kesehatan Gigi Terpercaya
+            </div>
+
+            <h1 class="hero-title">
+                Kesehatan Gigi <br>
+                Anda, <br>
+                <span class="text-brand-green">Prioritas Kami</span>
+            </h1>
+
+            <p class="hero-description">
+                Akses layanan perawatan gigi dengan mudah, transparan, dan terhubung langsung dengan dokter gigi terbaik. Solusi komprehensif untuk pasien dan praktisi.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button onclick="window.location.href='login.html'" class="btn btn-primary">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    Masuk Sekarang
+                </button>
+
+                <!-- Tombol Daftar Akun diarahkan ke register.html -->
+                <button onclick="window.location.href='register.html'" class="btn btn-secondary">
+                    <i class="fa-solid fa-user-plus"></i>
+                    Daftar Akun
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- Right Image -->
+        <div class="hero-image">
+
+            <div class="hero-image-wrapper">
+
+                <img
+                    src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                    alt="Ruangan Klinik Gigi Modern"
+                >
+
+                <div class="hero-image-overlay"></div>
+
+            </div>
+
+            <div class="rating-card">
+
+                <div class="rating-icon">
+                    <i class="fa-solid fa-star"></i>
+                </div>
+
+                <div>
+                    <div class="rating-title">4.9/5 Rating</div>
+                    <div class="rating-subtitle">Dari 10k+ Pasien</div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section container">
+
+        <div class="section-title">
+
+            <h2>Layanan Komprehensif Kami</h2>
+
+            <p>
+                Nikmati kemudahan mengatur kesehatan gigi Anda dengan fitur-fitur terintegrasi dalam satu platform.
+            </p>
+
+        </div>
+
+        <div class="features-grid">
+
+            <!-- Large Card -->
+            <div class="feature-card feature-large card-shadow">
+
+                <div class="feature-content">
+
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-square-plus"></i>
+                    </div>
+
+                    <h3>Rekomendasi Klinik Terdekat</h3>
+
+                    <p>
+                        Temukan klinik gigi terbaik dengan ulasan terverifikasi di sekitar Anda. Sesuaikan dengan kebutuhan perawatan spesifik.
+                    </p>
+
+                </div>
+
+                <div class="map-box map-grid">
+
+                    <svg class="map-svg" viewBox="0 0 400 200" preserveAspectRatio="none">
+                        <path
+                            d="M-50,150 C50,150 100,50 200,80 C300,110 350,-20 450,20"
+                            fill="none"
+                            stroke="#20675B"
+                            stroke-width="4"
+                            stroke-dasharray="10 10"
+                        />
+                    </svg>
+
+                    <div class="map-pin-small">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div class="pin-shadow"></div>
+                    </div>
+
+                    <div class="map-pin-main">
+
+                        <div class="map-avatar">
+                            <img
+                                src="https://api.dicebear.com/7.x/avataaars/svg?seed=Clinic"
+                                alt="Clinic"
+                            >
+                        </div>
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        <div class="pin-shadow-large"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Chat Card -->
+            <div class="feature-card card-shadow">
+
+                <div class="feature-icon">
+                    <i class="fa-regular fa-comments"></i>
+                </div>
+
+                <h3>Konsultasi Chat</h3>
+
+                <p>
+                    Tanya jawab langsung dengan dokter gigi profesional secara real-time sebelum melakukan kunjungan.
+                </p>
+
+                <div class="chat-preview">
+
+                    <div class="chat-left">
+                        <div class="chat-line full"></div>
+                        <div class="chat-line medium"></div>
+                    </div>
+
+                    <div class="chat-right">
+                        <div class="chat-line full green"></div>
+                        <div class="chat-line short green"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Schedule Card -->
+            <div class="feature-card card-shadow">
+
+                <div class="feature-icon">
+                    <i class="fa-regular fa-calendar-check"></i>
+                </div>
+
+                <h3>Manajemen Jadwal</h3>
+
+                <p>
+                    Atur jadwal kunjungan dengan mudah. Dapatkan pengingat otomatis untuk pemeriksaan rutin Anda.
+                </p>
+
+            </div>
+
+            <!-- Pricing Card -->
+            <div class="feature-card card-shadow">
+
+                <div class="feature-icon">
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                </div>
+
+                <h3>Estimasi Harga Transparan</h3>
+
+                <p>
+                    Ketahui estimasi biaya perawatan sejak awal. Tidak ada biaya tersembunyi, sesuai dengan standar medis.
+                </p>
+
+            </div>
+
+            <!-- Medical Record Card -->
+            <div class="feature-card card-shadow">
+
+                <div class="feature-icon">
+                    <i class="fa-regular fa-file-lines"></i>
+                </div>
+
+                <h3>Rekam Medis Digital</h3>
+
+                <p>
+                    Akses riwayat perawatan gigi Anda kapan saja. Aman, terenkripsi, dan mudah dibagikan ke spesialis.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Background Blur Effects -->
+    <div class="bg-blur-green"></div>
+    <div class="bg-blur-blue"></div>
+
+</body>
+</html>

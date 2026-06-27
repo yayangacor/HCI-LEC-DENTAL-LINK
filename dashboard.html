@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dental Link - Dashboard</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+<aside class="sidebar">
+<div class="sidebar-brand">
+<div class="brand-icon">
+<i class="fa-solid fa-stethoscope"></i>
+</div>
+<h1 class="brand-title">Dental Link</h1>
+</div>
+
+<div class="sidebar-profile-wrapper">
+<div class="sidebar-profile">
+<div class="profile-avatar">
+<img src="https://api.dicebear.com/7.x/avataaars/svg?seed=SarahConnor&backgroundColor=b6e3f4" alt="Sarah Connor">
+</div>
+<div class="profile-info">
+<p class="profile-name">Sarah Connor</p>
+<p class="profile-status">Pasien Premium</p>
+</div>
+</div>
+</div>
+
+<nav class="sidebar-nav">
+<a href="dashboard.html" class="nav-item active">
+<i class="fa-solid fa-chart-line nav-icon"></i>
+<span>Dashboard</span>
+</a>
+<a href="schedule.html" class="nav-item">
+<i class="fa-solid fa-calendar-days nav-icon"></i>
+<span>Jadwal</span>
+<span class="badge-red-nav">1</span>
+</a>
+<a href="prescriptions.html" class="nav-item">
+<i class="fa-solid fa-prescription-bottle-medical nav-icon"></i>
+<span>Preskripsi</span>
+</a>
+<a href="odontogram.html" class="nav-item">
+<i class="fa-solid fa-tooth nav-icon"></i>
+<span>Rekam Medis</span>
+</a>
+</nav>
+
+<div class="sidebar-footer">
+<button class="nav-item">
+<i class="fa-solid fa-gear nav-icon"></i>
+<span class="font-semibold">Pengaturan</span>
+</button>
+<button class="nav-item">
+<i class="fa-solid fa-circle-question nav-icon"></i>
+<span class="font-semibold">Bantuan</span>
+</button>
+</div>
+</aside>
+
+<div class="main-wrapper">
+<header class="topbar">
+  <div class="topbar-left">
+    <button id="hamburger-toggle" class="btn-hamburger">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <h2 class="topbar-title">Beranda Pasien</h2>
+  </div>
+  <div class="topbar-actions">
+    <button class="btn-notification">
+      <i class="fa-solid fa-bell"></i>
+      <span class="notification-dot"></span>
+    </button>
+  </div>
+</header>
+
+<main class="dashboard-content fade-in">
+<div class="hero-card">
+<div class="hero-pattern"></div>
+<div class="hero-content">
+<h2 class="hero-title">Halo, Sarah! 👋</h2>
+<p class="hero-text">
+Jaga senyum indahmu. Kamu memiliki jadwal kunjungan dalam 3 hari ke depan. Pastikan untuk datang tepat waktu.
+</p>
+<a href="schedule.html">
+<button class="btn-hero">Lihat Jadwal Saya</button>
+</a>
+</div>
+</div>
+
+<!-- KARTU PERMINTAAN LOKASI -->
+<div id="location-prompt" class="location-prompt-card fade-in">
+<div class="prompt-icon">
+<i class="fa-solid fa-map-location-dot"></i>
+</div>
+<h3>Apakah mengizinkan akses lokasi?</h3>
+<p>Kami membutuhkan lokasi Anda untuk merekomendasikan dokter gigi dan klinik terdekat di sekitar Anda.</p>
+<div class="prompt-actions">
+<button onclick="handleLocationAllow()" class="btn-allow">Izinkan</button>
+<button onclick="handleLocationDeny()" class="btn-deny">Tolak</button>
+</div>
+</div>
+
+<!-- KARTU INPUT LOKASI MANUAL (Disembunyikan awalnya) -->
+<div id="manual-location-form" class="location-prompt-card hidden fade-in">
+<div class="prompt-icon" style="background-color: var(--amber-100); color: var(--amber-500);">
+<i class="fa-solid fa-location-crosshairs"></i>
+</div>
+<h3>Masukkan Lokasi Manual</h3>
+<p>Silakan masukkan kota dan provinsi agar kami dapat menyesuaikan rekomendasi klinik.</p>
+<div class="manual-inputs">
+<input type="text" id="input-city" placeholder="Kota (Contoh: Jakarta Selatan)" class="form-input">
+<input type="text" id="input-province" placeholder="Provinsi (Contoh: DKI Jakarta)" class="form-input">
+<button onclick="submitManualLocation()" class="btn-allow" style="width: 100%;">Cari Klinik</button>
+</div>
+</div>
+
+<!-- HEADER KLINIK & FITUR SORTING (Disembunyikan awalnya) -->
+<div id="clinics-section-header" class="section-header hidden fade-in">
+<div>
+<h3 class="section-title">Klinik Rekomendasi</h3>
+<p class="section-subtitle">Temukan perawatan terbaik di sekitar Anda.</p>
+</div>
+<div class="header-controls">
+<!-- Kontrol Pengurutan (Sorting Controls) -->
+<div class="sort-container">
+<i class="fa-solid fa-arrow-down-up-wide sort-icon"></i>
+<select id="sort-by" onchange="applySorting()" class="sort-select">
+<option value="default">Urutkan: Bawaan</option>
+<option value="rating-desc">Rating: Tertinggi ke Terendah</option>
+<option value="rating-asc">Rating: Terendah ke Tertinggi</option>
+<option value="price-asc">Harga: Terendah ke Tertinggi</option>
+<option value="price-desc">Harga: Tertinggi ke Terendah</option>
+<option value="distance-asc">Jarak: Terdekat ke Terjauh</option>
+<option value="distance-desc">Jarak: Terjauh ke Terdekat</option>
+</select>
+</div>
+<div class="location-badge">
+<i class="fa-solid fa-location-dot"></i>
+<span id="location-text">Mencari lokasi...</span>
+</div>
+</div>
+</div>
+
+<!-- DAFTAR KLINIK (Disembunyikan awalnya) -->
+<div id="clinics-container" class="clinics-grid hidden fade-in"></div>
+</main>
+</div>
+
+<!-- MODAL KLINIK -->
+<div id="clinic-modal" class="modal-overlay">
+<div class="modal-content modal-animate">
+<button onclick="closeModal()" class="btn-close-modal">
+<i class="fa-solid fa-xmark"></i>
+</button>
+
+<div id="modal-image" class="modal-image"></div>
+
+<div class="modal-body">
+<div class="modal-header-info">
+<div class="modal-tags">
+<span class="tag-available">Tersedia</span>
+<span class="tag-rating">
+<i class="fa-solid fa-star"></i>
+<span id="modal-rating"></span>
+</span>
+</div>
+<h2 id="modal-title" class="modal-title-text"></h2>
+<p id="modal-address" class="modal-address-text"></p>
+</div>
+
+<div class="modal-services">
+<h3 class="services-title">
+<i class="fa-solid fa-tag text-emerald-500"></i>
+Estimasi Biaya Layanan
+</h3>
+<div class="table-container">
+<table class="services-table">
+<tbody id="modal-costs"></tbody>
+</table>
+</div>
+</div>
+
+<div class="modal-actions">
+<button onclick="toggleChat()" class="btn-chat">
+<i class="fa-solid fa-message"></i>
+Chat
+</button>
+<button id="btn-appoint-action" class="btn-appoint">
+<i class="fa-solid fa-calendar-plus"></i>
+Buat Janji
+</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- MODAL FORM BUAT JANJI -->
+<div id="appointment-modal" class="modal-overlay">
+    <div class="modal-content modal-animate" style="max-width: 500px;">
+        <button onclick="closeAppointmentForm()" class="btn-close-modal">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="modal-body">
+            <h3 class="services-title" style="margin-bottom: 24px;">
+                <i class="fa-solid fa-calendar-plus text-emerald-500"></i>
+                Formulir Janji Temu
+            </h3>
+            
+            <div class="form-group">
+                <label class="form-label">Nama Pasien</label>
+                <input type="text" id="appt-name" class="form-input" placeholder="Masukkan nama pasien" value="Sarah Connor">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Tanggal Kunjungan</label>
+                <input type="date" id="appt-date" class="form-input">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Waktu Kunjungan (Jam)</label>
+                <input type="time" id="appt-time" class="form-input">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Pilihan Layanan</label>
+                <select id="appt-service" class="form-input">
+                    <!-- Diisi dinamis lewat JS -->
+                </select>
+            </div>
+            
+            <button onclick="submitAppointment()" class="btn-appoint" style="width: 100%; margin-top: 24px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <i class="fa-solid fa-circle-check"></i> Simpan Janji Temu
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- WIDGET CHAT -->
+<div id="chat-widget" class="chat-widget">
+<div class="chat-header">
+<div class="chat-header-info">
+<div class="chat-icon">
+<i class="fa-solid fa-user-doctor"></i>
+</div>
+<div>
+<h4 id="chat-clinic-name" class="chat-title">Klinik</h4>
+<p class="chat-status">Online</p>
+</div>
+</div>
+<button onclick="closeChat()" class="btn-close-chat">
+<i class="fa-solid fa-xmark"></i>
+</button>
+</div>
+
+<div id="chat-messages" class="chat-messages"></div>
+
+<div class="chat-input-area">
+<input id="chat-input" type="text" placeholder="Ketik pesan..." class="chat-input">
+<button onclick="sendMessage()" class="btn-send">
+<i class="fa-solid fa-paper-plane"></i>
+</button>
+</div>
+</div>
+
+<div id="toast-container" class="toast-container"></div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>

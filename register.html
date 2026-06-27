@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar - Dental Link</title>
+    <link rel="stylesheet" href="register.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="register-card">
+        <!-- Top Accent -->
+        <div class="card-accent"></div>
+
+        <div class="card-content">
+            <!-- Logo -->
+            <div class="logo-section">
+                <div class="logo">
+                    <i class="fa-solid fa-tooth"></i>
+                    <h1>Dental Link</h1>
+                </div>
+                <p class="welcome-text">Bergabunglah bersama kami hari ini</p>
+            </div>
+
+            <!-- Role Selector -->
+            <div class="role-selector">
+                <button id="btn-pasien" onclick="setRole('pasien')" class="role-btn active">
+                    Pasien
+                </button>
+                <button id="btn-dokter" onclick="setRole('dokter')" class="role-btn inactive">
+                    Dokter
+                </button>
+            </div>
+
+            <!-- Register Form -->
+            <form id="registerForm" class="register-form">
+                
+                <!-- Nama Lengkap -->
+                <div class="form-group">
+                    <label>Nama Lengkap</label>
+                    <div class="input-wrapper">
+                        <i class="fa-regular fa-user input-icon"></i>
+                        <input type="text" id="nameInput" placeholder="Masukkan nama lengkap anda" required>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label>Email</label>
+                    <div class="input-wrapper">
+                        <i class="fa-regular fa-envelope input-icon"></i>
+                        <input type="email" id="emailInput" placeholder="Masukkan email anda" required>
+                    </div>
+                </div>
+
+                <!-- Khusus Dokter (Hidden by default) -->
+                <div id="doctor-fields" style="display: none;">
+                    <div class="form-group">
+                        <label>Nama Klinik / Praktik</label>
+                        <div class="input-wrapper">
+                            <i class="fa-regular fa-hospital input-icon"></i>
+                            <input type="text" id="clinicInput" placeholder="Contoh: Klinik Gigi Sehat">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Lokasi / Kota</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-location-dot input-icon"></i>
+                            <input type="text" id="locationInput" placeholder="Contoh: Jakarta Selatan">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label>Kata Sandi</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-lock input-icon"></i>
+                        <input type="password" id="passwordInput" placeholder="Buat kata sandi" required>
+                        <button type="button" onclick="togglePassword('passwordInput', 'eyeIcon1')" class="toggle-password">
+                            <i id="eyeIcon1" class="fa-regular fa-eye-slash"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="form-group">
+                    <label>Konfirmasi Kata Sandi</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-shield-halved input-icon"></i>
+                        <input type="password" id="confirmPasswordInput" placeholder="Ulangi kata sandi" required>
+                        <button type="button" onclick="togglePassword('confirmPasswordInput', 'eyeIcon2')" class="toggle-password">
+                            <i id="eyeIcon2" class="fa-regular fa-eye-slash"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Error Message Container -->
+                <div id="errorMessage" class="error-text" style="display: none;"></div>
+
+                <!-- Submit -->
+                <button type="submit" class="submit-btn">Daftar Akun</button>
+            </form>
+
+            <!-- Footer -->
+            <p class="footer-text">
+                Sudah punya akun?
+                <a href="login.html">Masuk di sini</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="register.js"></script>
+</body>
+</html>
